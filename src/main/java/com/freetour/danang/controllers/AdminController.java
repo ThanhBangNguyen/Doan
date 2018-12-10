@@ -120,6 +120,7 @@ public class AdminController {
             return mav;
         }
         mav.addObject("add",new RestaurantDTO());
+        mav.addObject("listCategory",adminService.listThingToDo());
         mav.setViewName("admin/addRestaurant");
         return mav;
     }
@@ -138,6 +139,7 @@ public class AdminController {
             return mav;
         }
         mav.addObject("add",new MenuDTO());
+        mav.addObject("listRestaurant",adminService.listRes());
         mav.setViewName("admin/addMenu");
         return mav;
     }

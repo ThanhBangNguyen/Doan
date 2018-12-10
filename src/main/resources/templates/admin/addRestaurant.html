@@ -128,7 +128,10 @@
                             </div>
                             <div class="form-group">
                               <label >Category</label>
-                              <input type="text" class="form-control" placeholder="eat" th:field="*{category.id}">
+                              <!--<input type="text" class="form-control" placeholder="eat" th:field="*{category.id}">-->
+                              <select class="form-control" th:field="*{category.id}" >
+                                <option style="text-transform: uppercase" th:each="list : ${listCategory}" th:value="${list.id}" th:text="${list.name}"></option>
+                              </select>
                             </div>
                             <div class="form-row">
                               <div class="form-group col-md-6">
@@ -159,7 +162,11 @@
                                 <input type="text" class="form-control" id="inputZip" placeholder="7:00am - 12:00pm" th:field="*{openCloseTime}"> </div>
                               <div class="form-group col-md-4">
                                 <label for="feInputCity">Type</label>
-                                <input type="text" class="form-control" id="feInputCity" placeholder="0900000000" th:field="*{type}"> </div>
+                                <select class="form-control" th:field="*{type}" >
+                                  <option  th:value="'1'" th:text="Menu-VIP"></option>
+                                  <option  th:value="'2'" th:text="Menu-Thường"></option>
+                                </select>
+                              </div>
                             </div>
                             <div class="form-group">
                               <label >Link Map</label>

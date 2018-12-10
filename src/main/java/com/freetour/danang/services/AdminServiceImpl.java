@@ -127,6 +127,19 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public List<RestaurantDTO> listRes() {
+        List<RestaurantDTO> restaurantDTOS = new ArrayList<>();
+        List<Restaurant> restaurants = restaurantRepository.findAll();
+        for (Restaurant restaurant:restaurants){
+            RestaurantDTO restaurantDTO = new RestaurantDTO();
+            restaurantDTO.setId(restaurant.getId());
+            restaurantDTO.setName(restaurant.getName());
+            restaurantDTOS.add(restaurantDTO);
+        }
+        return restaurantDTOS;
+    }
+
+    @Override
     public Category deleteThingToDo(Long id) {
         categoryRepository.deleteById(id);
         return null;

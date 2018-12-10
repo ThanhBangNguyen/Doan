@@ -30,4 +30,6 @@ public interface AdminService {
     Menu deleteMenu(Long id);
 
     UserDTO login(UserDTO userDTO);
+
+    List<RestaurantDTO> listRes();
 }

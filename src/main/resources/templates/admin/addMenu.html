@@ -135,14 +135,25 @@
                                 <label for="feInputCity">Price</label>
                                 <input type="text" class="form-control" id="feInputCity" placeholder="9" th:field="*{price}"> </div>
                               <div class="form-group col-md-2">
-                                <label for="inputZip">Featured</label>
-                                <input type="text" class="form-control" id="inputZip" placeholder="1" th:field="*{featured}"> </div>
+                                <label >Featured</label>
+                                <select class="form-control" th:field="*{featured}" >
+                                  <option  th:value="'false'" th:text="Món-bình-thường"></option>
+                                  <option  th:value="'true'" th:text="Món-đặc-trưng"></option>
+                                </select>
+                              </div>
                               <div class="form-group col-md-2">
-                                <label for="inputZip">Type</label>
-                                <input type="text" class="form-control" id="inputZip" placeholder="1" th:field="*{type}"> </div>
+                                <label >Type</label>
+                                <select class="form-control" th:field="*{type}" >
+                                  <option  th:value="'1'" th:text="Thức-ăn"></option>
+                                  <option  th:value="'2'" th:text="Thức-uống"></option>
+                                </select>
+                              </div>
                               <div class="form-group col-md-2">
-                                <label for="inputZip">Restaurant</label>
-                                <input type="text" class="form-control" id="inputZip" placeholder="1" th:field="*{restaurant.id}"> </div>
+                                <label>Restaurant</label>
+                                <select class="form-control" th:field="*{restaurant.id}" >
+                                  <option style="text-transform: uppercase" th:each="list : ${listRestaurant}" th:value="${list.id}" th:text="${list.name}"></option>
+                                </select>
+                              </div>
                             </div>
                             <div class="form-group">
                               <label>Description</label>
@@ -154,22 +165,6 @@
                       </div>
                     </li>
                   </ul>
-                </div>
-              </div>
-              <div class="notes" style="float: right">
-                <div>
-                        <span class="item-already-note">
-                            <p class="name-note"><span> Image: Nhap bang link.</span></p>
-                        </span><br>
-                  <span class="item-note">
-                            <p class="name-note"><span> Type: Nhap 1 ( EAT ) hoac 2 ( DRINK )</span></p>
-                        </span><br>
-                  <span class="item-note">
-                            <p class="name-note"><span> Featured: 1. ( món ăn đặc trưng ) 2. ( Bình thường ) </span></p>
-                        </span><br>
-                  <span class="item-note">
-                            <p class="name-note"><span> Restaurant: Nhập id của nhà hàng </span></p>
-                        </span><br>
                 </div>
               </div>
             </div>
