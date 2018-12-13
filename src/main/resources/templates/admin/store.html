@@ -149,7 +149,9 @@
                         <td th:text="${listRes.phone}"></td>
                           <td>
                             <button type="button" class="btn btn-xs btn-warning" style="color: #fff">Update</button>
-                            <button class="btn btn-xs-xs btn-info">Detail</button>
+                            <a th:href="@{/admin/store-detail-{id}(id=${listRes.id})}">
+                              <button class="btn btn-xs-xs btn-info">Detail</button>
+                            </a>
                             <a th:href="@{/admin/store-{id}-delete(id=${listRes.id})}">
                               <button class="btn btn-xs-xs btn-danger">Remove</button>
                             </a>

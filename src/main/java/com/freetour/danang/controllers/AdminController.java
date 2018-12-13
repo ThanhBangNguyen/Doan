@@ -65,7 +65,7 @@ public class AdminController {
     public ModelAndView getThingToDo(HttpSession session){
         ModelAndView mav = new ModelAndView();
         if (session.getAttribute("user") == null){
-            mav.setViewName("redirect:/login");
+            mav.setViewName("redirect:/admin/login");
             return mav;
         }
         mav.addObject("listCategory",adminService.listThingToDo());
@@ -169,6 +169,17 @@ public class AdminController {
         ModelAndView mav = new ModelAndView();
         mav.addObject("listMenu",adminService.deleteMenu(id));
             mav.setViewName("redirect:/admin/things-To-Do");
+        return mav;
+    }
+    @GetMapping(value = "/store-detail-{id}")
+    public ModelAndView detailStore(@PathVariable(value = "id") Long id, HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        if (session.getAttribute("user") == null){
+            mav.setViewName("redirect:/admin/login");
+            return mav;
+        }
+        mav.addObject("detail",adminService.detailStore(id));
+        mav.setViewName("admin/detailStore");
         return mav;
     }
 }

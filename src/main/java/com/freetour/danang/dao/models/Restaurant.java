@@ -45,6 +45,7 @@ public class Restaurant implements Serializable {
     @Column(name = "type")
     private Integer type;
 
+
     @OneToMany(mappedBy = "restaurant", fetch = FetchType.EAGER)
     private Set<Menu> menus;
 

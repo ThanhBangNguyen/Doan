@@ -32,4 +32,6 @@ public interface AdminService {
     UserDTO login(UserDTO userDTO);
 
     List<RestaurantDTO> listRes();
+
+    RestaurantDTO detailStore(Long id);
 }

@@ -165,4 +165,27 @@ public class AdminServiceImpl implements AdminService {
         }
         return userDTO;
     }
+
+    @Override
+    public RestaurantDTO detailStore(Long id) {
+        Restaurant restaurant = restaurantRepository.detailStore(id);
+        RestaurantDTO restaurantDTO = new RestaurantDTO();
+        restaurantDTO.setName(restaurant.getName());
+        restaurantDTO.setPhone(restaurant.getPhone());
+        restaurantDTO.setAddress(restaurant.getAddress());
+        restaurantDTO.setPriceVN(restaurant.getPriceVN());
+        restaurantDTO.setImage(restaurant.getImage());
+        restaurantDTO.setOpenCloseTime(restaurant.getTimeOC());
+        restaurantDTO.setLinkMap(restaurant.getLinkMap());
+        restaurantDTO.setPriceUS(restaurant.getPriceUS());
+        restaurantDTO.setInfo(restaurant.getInfo());
+        restaurantDTO.setShortInfo(restaurant.getShortInfo());
+
+        CategoryDTO categoryDTO = new CategoryDTO();
+        categoryDTO.setName(restaurant.getCategory().getName());
+
+        restaurantDTO.setCategory(categoryDTO);
+
+        return restaurantDTO;
+    }
 }
