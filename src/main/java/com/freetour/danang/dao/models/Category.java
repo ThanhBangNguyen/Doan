@@ -15,6 +15,9 @@ public class Category implements Serializable {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "class")
+    private String nameClass;
+
     @OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
     private Set<Restaurant> restaurants;
 
@@ -40,5 +43,13 @@ public class Category implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getNameClass() {
+        return nameClass;
+    }
+
+    public void setNameClass(String nameClass) {
+        this.nameClass = nameClass;
     }
 }

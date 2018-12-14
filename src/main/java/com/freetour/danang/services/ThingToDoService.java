@@ -10,11 +10,8 @@ import java.util.List;
 
 public interface ThingToDoService {
 
-    List<CategoryDTO> getRestaurant();
 
-    List<RestaurantDTO> getListResEat();
 
-    List<RestaurantDTO> getListResDrink();
 
     RestaurantDTO getPartNer(Long id);
 
@@ -22,11 +19,13 @@ public interface ThingToDoService {
 
     MenuDTO getFeatured(Long id);
 
-    List<RestaurantDTO> getMenuResEat();
-
-    List<RestaurantDTO> getMenuResDrink();
+    List<RestaurantDTO> getMenuRes(Long id);
 
     List<MenuDTO> getMenuFood(Long id);
 
     List<MenuDTO> getMenuDrink(Long id);
+
+    List<CategoryDTO> getListThingToDo();
+
+    List<RestaurantDTO> listStore(Long id);
 }

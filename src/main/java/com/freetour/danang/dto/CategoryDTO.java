@@ -7,6 +7,7 @@ import java.util.List;
 public class CategoryDTO {
     private Long id;
     private String name;
+    private String nameClass;
     private List<RestaurantDTO> restaurants;
 
     @Override
@@ -14,6 +15,7 @@ public class CategoryDTO {
         return "CategoryDTO{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", nameClass='" + nameClass + '\'' +
                 ", restaurants=" + restaurants +
                 '}';
     }
@@ -40,5 +42,13 @@ public class CategoryDTO {
 
     public void setRestaurants(List<RestaurantDTO> restaurants) {
         this.restaurants = restaurants;
+    }
+
+    public String getNameClass() {
+        return nameClass;
+    }
+
+    public void setNameClass(String nameClass) {
+        this.nameClass = nameClass;
     }
 }

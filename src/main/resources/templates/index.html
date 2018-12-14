@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -324,42 +324,13 @@
                 Things to do
             </div>
             <div class="things-catalog">
-                <div class="things-but">
-                    <a href="/catalog-eat">
-                        <i class="flaticon-ramen"></i>
-                        <p>EAT</p>
+                <div class="things-but" th:each="list:${listThingtodo}">
+                    <a th:href="@{/web-catalog-{id}(id=${list.id})}">
+                        <i th:class="${list.nameClass}"></i>
+                        <p th:text="${list.name}"></p>
                     </a>
                 </div>
-                <div class="things-but">
-                    <a href="/catalog-drink">
-                        <i class="flaticon-cocktail"></i>
-                        <p>DRINK</p>
-                    </a>
-                </div>
-                <div class="things-but">
-                    <a href="/catalog">
-                        <i class="flaticon-bed"></i>
-                        <p>STAY</p>
-                    </a>
-                </div>
-                <div class="things-but">
-                    <a href="/catalog">
-                        <i class="flaticon-leaf"></i>
-                        <p>RELAX</p>
-                    </a>
-                </div>
-                <div class="things-but">
-                    <a href="/catalog">
-                        <i class="flaticon-joker"></i>
-                        <p>ENTERTAIN</p>
-                    </a>
-                </div>
-                <div class="things-but">
-                    <a href="/catalog">
-                        <i class="flaticon-gift"></i>
-                        <p>GIFT</p>
-                    </a>
-                </div>
+
             </div>
         </section>
         <section class="latest-news">

@@ -51,7 +51,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public List<RestaurantDTO> listStore(Long id) {
         List<RestaurantDTO> restaurantDTOS = new ArrayList<>();
-        List<Restaurant> restaurants = restaurantRepository.listStore(id);
+        List<Restaurant> restaurants = restaurantRepository.listStoreAdmin(id);
         for (Restaurant restaurant:restaurants){
             RestaurantDTO restaurantDTO = new RestaurantDTO();
             restaurantDTO.setId(restaurant.getId());
@@ -83,6 +83,7 @@ public class AdminServiceImpl implements AdminService {
     public CategoryDTO addThingToDo(CategoryDTO categoryDTO) {
         Category category = new Category();
         category.setName(categoryDTO.getName());
+        category.setNameClass(categoryDTO.getNameClass());
         categoryRepository.save(category);
         return null;
     }

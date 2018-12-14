@@ -19,25 +19,17 @@ public class ThingToDoController {
     @GetMapping(value = "/")
     public ModelAndView getIndex(){
         ModelAndView mav = new ModelAndView();
+        mav.addObject("listThingtodo",thingToDoService.getListThingToDo());
         mav.setViewName("index");
         return mav;
     }
-    //=======================================EAT===========================================//
-    @GetMapping(value = "/catalog-eat")
-    public ModelAndView getCatalogEat(Model model){
+    @GetMapping(value = "/web-catalog-{id}")
+    public ModelAndView getCatalogEat(@PathVariable(value = "id") Long id){
         ModelAndView mav = new ModelAndView();
-        mav.addObject("getListRes", thingToDoService.getListResEat());
-        mav.addObject("getMenuRes", thingToDoService.getMenuResEat());
-        mav.setViewName("eat");
-        return mav;
-    }
-    //=====================================DRINK===========================================//
-    @GetMapping(value = "/catalog-drink")
-    public ModelAndView getCatalogDrink(Model model){
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("getListRes", thingToDoService.getListResDrink());
-        mav.addObject("getMenuRes", thingToDoService.getMenuResDrink());
-        mav.setViewName("drink");
+        mav.addObject("listThingtodo",thingToDoService.getListThingToDo());
+        mav.addObject("listRes",thingToDoService.listStore(id));
+        mav.addObject("getMenu", thingToDoService.getMenuRes(id));
+        mav.setViewName("store");
         return mav;
     }
     //======================================PARTNER========================================//

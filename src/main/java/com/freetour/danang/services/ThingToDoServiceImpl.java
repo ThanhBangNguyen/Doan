@@ -28,21 +28,23 @@ public class ThingToDoServiceImpl implements ThingToDoService{
     }
 
     @Override
-    public List<CategoryDTO> getRestaurant() {
-        List<CategoryDTO> list = new ArrayList<>();
+    public List<CategoryDTO> getListThingToDo() {
+        List<CategoryDTO> categoryDTOS = new ArrayList<>();
         List<Category> categories = categoryRepository.findAll();
-        for (Category category: categories){
+        for (Category category:categories){
             CategoryDTO categoryDTO = new CategoryDTO();
+            categoryDTO.setId(category.getId());
             categoryDTO.setName(category.getName());
-            list.add(categoryDTO);
-          }
-        return list;
+            categoryDTO.setNameClass(category.getNameClass());
+            categoryDTOS.add(categoryDTO);
+        }
+        return categoryDTOS;
     }
 
     @Override
-    public List<RestaurantDTO> getListResEat() {
-        List<RestaurantDTO> restaurantDTOList = new ArrayList<>();
-        List<Restaurant> restaurants = restaurantRepository.findEat();
+    public List<RestaurantDTO> listStore(Long id) {
+        List<RestaurantDTO> restaurantDTOS = new ArrayList<>();
+        List<Restaurant> restaurants = restaurantRepository.listStore(id);
         for (Restaurant restaurant:restaurants){
             RestaurantDTO restaurantDTO = new RestaurantDTO();
             restaurantDTO.setId(restaurant.getId());
@@ -51,27 +53,14 @@ public class ThingToDoServiceImpl implements ThingToDoService{
             restaurantDTO.setShortInfo(restaurant.getShortInfo());
             restaurantDTO.setPriceUS(restaurant.getPriceUS());
             restaurantDTO.setPriceVN(restaurant.getPriceVN());
-            restaurantDTOList.add(restaurantDTO);
+            restaurantDTOS.add(restaurantDTO);
         }
-        return restaurantDTOList;
+        return restaurantDTOS;
     }
 
-    @Override
-    public List<RestaurantDTO> getListResDrink() {
-        List<RestaurantDTO> restaurantDTOList = new ArrayList<>();
-        List<Restaurant> restaurants = restaurantRepository.findDrink();
-        for (Restaurant restaurant:restaurants){
-            RestaurantDTO restaurantDTO = new RestaurantDTO();
-            restaurantDTO.setId(restaurant.getId());
-            restaurantDTO.setName(restaurant.getName());
-            restaurantDTO.setImage(restaurant.getImage());
-            restaurantDTO.setShortInfo(restaurant.getShortInfo());
-            restaurantDTO.setPriceUS(restaurant.getPriceUS());
-            restaurantDTO.setPriceVN(restaurant.getPriceVN());
-            restaurantDTOList.add(restaurantDTO);
-        }
-        return restaurantDTOList;
-    }
+
+
+
 
     @Override
     public RestaurantDTO getPartNer(Long id) {
@@ -124,9 +113,9 @@ public class ThingToDoServiceImpl implements ThingToDoService{
     }
 
     @Override
-    public List<RestaurantDTO> getMenuResEat() {
+    public List<RestaurantDTO> getMenuRes(Long id) {
         List<RestaurantDTO> restaurantDTOList = new ArrayList<>();
-        List<Restaurant> restaurants = restaurantRepository.findEatMenu();
+        List<Restaurant> restaurants = restaurantRepository.findMenu(id);
         for (Restaurant restaurant:restaurants){
             RestaurantDTO restaurantDTO = new RestaurantDTO();
             restaurantDTO.setId(restaurant.getId());
@@ -140,22 +129,7 @@ public class ThingToDoServiceImpl implements ThingToDoService{
         return restaurantDTOList;
     }
 
-    @Override
-    public List<RestaurantDTO> getMenuResDrink() {
-        List<RestaurantDTO> restaurantDTOList = new ArrayList<>();
-        List<Restaurant> restaurants = restaurantRepository.findDrinkMenu();
-        for (Restaurant restaurant:restaurants){
-            RestaurantDTO restaurantDTO = new RestaurantDTO();
-            restaurantDTO.setId(restaurant.getId());
-            restaurantDTO.setName(restaurant.getName());
-            restaurantDTO.setImage(restaurant.getImage());
-            restaurantDTO.setShortInfo(restaurant.getShortInfo());
-            restaurantDTO.setPriceUS(restaurant.getPriceUS());
-            restaurantDTO.setPriceVN(restaurant.getPriceVN());
-            restaurantDTOList.add(restaurantDTO);
-        }
-        return restaurantDTOList;
-    }
+
     @Override
     public List<MenuDTO> getMenuFood(Long id) {
         List<MenuDTO> list = new ArrayList<>();
