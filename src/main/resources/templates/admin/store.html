@@ -148,7 +148,9 @@
                         <td th:text="${listRes.priceVN}"></td>
                         <td th:text="${listRes.phone}"></td>
                           <td>
-                            <button type="button" class="btn btn-xs btn-warning" style="color: #fff">Update</button>
+                            <a th:href="@{/admin/updateRestaurant-{id}(id=${listRes.id})}">
+                              <button type="button" class="btn btn-xs btn-warning" style="color: #fff">Update</button>
+                            </a>
                             <a th:href="@{/admin/store-detail-{id}(id=${listRes.id})}">
                               <button class="btn btn-xs-xs btn-info">Detail</button>
                             </a>

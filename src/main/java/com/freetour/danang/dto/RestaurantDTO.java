@@ -14,6 +14,7 @@ public class RestaurantDTO {
     private String phone;
     private String linkMap;
     private String image;
+    private String video;
     private Integer type;
     private Boolean featured;
     private List<MenuDTO> menus;
@@ -33,6 +34,7 @@ public class RestaurantDTO {
                 ", phone='" + phone + '\'' +
                 ", linkMap='" + linkMap + '\'' +
                 ", image='" + image + '\'' +
+                ", video='" + video + '\'' +
                 ", type=" + type +
                 ", featured=" + featured +
                 ", menus=" + menus +
@@ -158,5 +160,13 @@ public class RestaurantDTO {
 
     public void setLinkMap(String linkMap) {
         this.linkMap = linkMap;
+    }
+
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
     }
 }

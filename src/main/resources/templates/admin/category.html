@@ -144,11 +144,11 @@
                         <td th:text="${listCate.id}"></td>
                         <td style="text-transform: uppercase" ><a th:text="${listCate.name}" th:href="@{/admin/thing-To-Do-{id}(id=${listCate.id})}"></a> </td>
                           <td>
-                            <button type="button" class="btn btn-xs btn-warning" style="color: #fff">Update</button>
-                            <button class="btn btn-xs-xs btn-info">Detail</button>
-                            <a th:href="@{/admin/thingToDo-{id}-delete(id=${listCate.id})}">
-                              <button class="btn btn-xs-xs btn-danger">Remove</button>
+                            <a th:href="@{/admin/updateCategory-{id}(id=${listCate.id})}">
+                              <button type="button" class="btn btn-xs btn-warning" style="color: #fff">Update</button>
                             </a>
+                            <button class="btn btn-xs-xs btn-info">Detail</button>
+                            <button class="btn btn-xs-xs btn-danger">Remove</button>
                           </td>
                         </tr>
                       </tbody>

@@ -36,6 +36,7 @@ public class ThingToDoController {
     @GetMapping(value = "/partnerInfo-{id}")
     public ModelAndView getPartnerInfo(@PathVariable(value = "id") Long id, Model model){
         ModelAndView mav = new ModelAndView();
+        mav.addObject("listThingtodo",thingToDoService.getListThingToDo());
         mav.addObject("getPartNer", thingToDoService.getPartNer(id));
         mav.addObject("getListMenu", thingToDoService.getPartNerMenu(id));
         mav.addObject("getFeatured", thingToDoService.getFeatured(id));
@@ -46,6 +47,7 @@ public class ThingToDoController {
     @GetMapping(value = "/catalog-{id}")
     public ModelAndView getResMenuEat(@PathVariable(value = "id") Long id){
         ModelAndView mav = new ModelAndView();
+        mav.addObject("listThingtodo",thingToDoService.getListThingToDo());
         mav.addObject("getPartNer", thingToDoService.getPartNer(id));
         mav.addObject("getListMenuFood", thingToDoService.getMenuFood(id));
         mav.addObject("getListMenuDrink", thingToDoService.getMenuDrink(id));

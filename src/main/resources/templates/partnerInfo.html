@@ -33,40 +33,10 @@
             </a>
         </div>
         <div class="things-catalog">
-            <div class="things-but">
-                <a href="/catalog-eat">
-                    <i class="flaticon-ramen"></i>
-                    <p>Eat</p>
-                </a>
-            </div>
-            <div class="things-but">
-                <a href="/catalog-drink">
-                    <i class="flaticon-cocktail"></i>
-                    <p>Drink</p>
-                </a>
-            </div>
-            <div class="things-but">
-                <a href="catalog.html">
-                    <i class="flaticon-bed"></i>
-                    <p>Stay</p>
-                </a>
-            </div>
-            <div class="things-but">
-                <a href="catalog.html">
-                    <i class="flaticon-leaf"></i>
-                    <p>Relax</p>
-                </a>
-            </div>
-            <div class="things-but">
-                <a href="catalog.html">
-                    <i class="flaticon-joker"></i>
-                    <p>Entertain</p>
-                </a>
-            </div>
-            <div class="things-but">
-                <a href="catalog.html">
-                    <i class="flaticon-gift"></i>
-                    <p>Gift</p>
+            <div class="things-but" th:each="list:${listThingtodo}">
+                <a th:href="@{/web-catalog-{id}(id=${list.id})}">
+                    <i th:class="${list.nameClass}"></i>
+                    <p th:text="${list.name}"></p>
                 </a>
             </div>
         </div>
@@ -116,7 +86,7 @@
                         <div class="description" th:text="${getFeatured.description}">
 
                         </div>
-                        <div class="cost" th:text="${getFeatured.price}">
+                        <div class="cost"><p> $ <span th:text="${getFeatured.price}"></span></p>
                         </div>
                     </div>
                 </div>
@@ -136,202 +106,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                </div>
-                <div class="diary">
-                    <div class="diary-item">
-                        <div class="day">
-                            <div class="day-icon">
-                                <i class="fas fa-thumbtack"></i>
-                            </div>
-                            <div class="day-text">
-                                21/7/2018
-                            </div>
-                        </div>
-                        <div class="post">
-                            <div class="post-text">
-                                To make the exact kind of roll, the pork chosen must have a balance between meat and fat.
-                            </div>
-                            <div class="post-img">
-                                <img class="diary-img" data-src="images/15747565_937619203049264_7166017410166877389_n.jpg" >
-                            </div>
-                            <div class="post-button">
-                                <div class="button-item">
-                                    <a >
-                                        <div class="button-icon">
-                                            <i class="far fa-thumbs-up"></i>
-                                        </div>
-                                        <div class="button-text">
-                                            Like
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="button-item">
-                                    <a >
-                                        <div class="button-icon">
-                                            <i class="fas fa-comment"></i>
-                                        </div>
-                                        <div class="button-text">
-                                            Comment
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="button-item">
-                                    <a >
-                                        <div class="button-icon">
-                                            <i class="fas fa-share"></i>
-                                        </div>
-                                        <div class="button-text">
-                                            Share
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment">
-                            <div class="cmt-item">
-                                <div class="avt-cmt">
-                                    <img class="avt-cmt-img" data-src="images/thingstodo-cover.png" >
-                                </div>
-                                <div class="text-cmt">
-                                    <div class="name">
-                                        Lily Ju
-                                    </div>
-                                    <div class="text">
-                                        If you visit Da Nang, don't miss this place, haha. I love this restaurant, the price is not really expensive. I think the
-                                        price is kinda cheap to me. and food is extremely tasty!!! Yummy
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cmt-item">
-                                <div class="avt-cmt">
-                                    <img class="avt-cmt-img" data-src="images/thingstodo-cover.png" >
-                                </div>
-                                <div class="text-cmt">
-                                    <div class="name">
-                                        Thomas Andrew
-                                    </div>
-                                    <div class="text">
-                                        I have been here so many times and I will keep coming back. Simply because the food is always as good as the first time I
-                                        was there.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cmt-item">
-                                <div class="avt-cmt">
-                                    <img class="avt-cmt-img" data-src="images/thingstodo-cover.png" >
-                                </div>
-                                <div class="text-cmt">
-                                    <div class="name">
-                                        Passenger
-                                    </div>
-                                    <div class="text">
-                                        My favourite is banh uot, the meat was beautifully marinated before bbqing, the fishsauce was light and perfect for the dish.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="diary-item">
-                        <div class="day">
-                            <div class="day-icon">
-                                <i class="fas fa-thumbtack"></i>
-                            </div>
-                            <div class="day-text">
-                                21/7/2018
-                            </div>
-                        </div>
-                        <div class="post">
-                            <div class="post-text">
-                                To make the exact kind of roll, the pork chosen must have a balance between meat and fat.
-                            </div>
-                            <div class="post-img">
-                                <img class="diary-img" data-src="images/15747565_937619203049264_7166017410166877389_n.jpg" >
-                            </div>
-                            <div class="post-button">
-                                <div class="button-item">
-                                    <a >
-                                        <div class="button-icon">
-                                            <i class="far fa-thumbs-up"></i>
-                                        </div>
-                                        <div class="button-text">
-                                            Like
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="button-item">
-                                    <a >
-                                        <div class="button-icon">
-                                            <i class="fas fa-comment"></i>
-                                        </div>
-                                        <div class="button-text">
-                                            Comment
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="button-item">
-                                    <a >
-                                        <div class="button-icon">
-                                            <i class="fas fa-share"></i>
-                                        </div>
-                                        <div class="button-text">
-                                            Share
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment">
-                            <div class="cmt-item">
-                                <div class="avt-cmt">
-                                    <img class="avt-cmt-img" data-src="images/thingstodo-cover.png" >
-                                </div>
-                                <div class="text-cmt">
-                                    <div class="name">
-                                        Lily Ju
-                                    </div>
-                                    <div class="text">
-                                        If you visit Da Nang, don't miss this place, haha. I love this restaurant, the price is not really expensive. I think the
-                                        price is kinda cheap to me. and food is extremely tasty!!! Yummy
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cmt-item">
-                                <div class="avt-cmt">
-                                    <img class="avt-cmt-img" data-src="images/thingstodo-cover.png" >
-                                </div>
-                                <div class="text-cmt">
-                                    <div class="name">
-                                        Thomas Andrew
-                                    </div>
-                                    <div class="text">
-                                        I have been here so many times and I will keep coming back. Simply because the food is always as good as the first time I
-                                        was there.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cmt-item">
-                                <div class="avt-cmt">
-                                    <img class="avt-cmt-img" data-src="images/thingstodo-cover.png" >
-                                </div>
-                                <div class="text-cmt">
-                                    <div class="name">
-                                        Passenger
-                                    </div>
-                                    <div class="text">
-                                        My favourite is banh uot, the meat was beautifully marinated before bbqing, the fishsauce was light and perfect for the dish.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="diary-button">
-                        <a >
-                            <button>
-                                See more
-                            </button>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -368,113 +142,7 @@
                     <div class="comment-title">
                         COMMENTS
                     </div>
-                    <div class="total-rated">
-                        <div class="total-num">
-                            <div class="point">
-                                9.0
-                            </div>
-                            <div class="space">
-                                /
-                            </div>
-                            <div class="max">
-                                10
-                            </div>
-                        </div>
-                        <div class="count-rated">
-                            <div class="quantity">
-                                36
-                            </div>
-                            <div class="text">ratings</div>
-                        </div>
-                    </div>
-                    <div class="single-rated">
-                        <div class="info">
-                            <div class="avt">
-                                <img class="rated-avt-img" data-src="images/Mask Group.png" >
-                            </div>
-                            <div class="name">
-                                Alexander
-                            </div>
-                        </div>
-                        <div class="rate">
-                            <div class="point">
-                                9.0
-                            </div>
-                            <div class="space">
-                                /
-                            </div>
-                            <div class="max">
-                                10
-                            </div>
-                        </div>
-                        <div class="rate-cmt">
-                            I have been here so many times and I will keep coming back.
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="single-rated">
-                        <div class="info">
-                            <div class="avt">
-                                <img class="rated-avt-img" data-src="images/Mask Group.png" >
-                            </div>
-                            <div class="name">
-                                Alexander
-                            </div>
-                        </div>
-                        <div class="rate">
-                            <div class="point">
-                                9.0
-                            </div>
-                            <div class="space">
-                                /
-                            </div>
-                            <div class="max">
-                                10
-                            </div>
-                        </div>
-                        <div class="rate-cmt">
-                            I have been here so many times and I will keep coming back.
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="single-rated">
-                        <div class="info">
-                            <div class="avt">
-                                <img class="rated-avt-img" data-src="images/Mask Group.png" >
-                            </div>
-                            <div class="name">
-                                Alexander
-                            </div>
-                        </div>
-                        <div class="rate">
-                            <div class="point">
-                                9.0
-                            </div>
-                            <div class="space">
-                                /
-                            </div>
-                            <div class="max">
-                                10
-                            </div>
-                        </div>
-                        <div class="rate-cmt">
-                            I have been here so many times and I will keep coming back.
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="more">
-                        <a >
-                            See more
-                        </a>
-                    </div>
-                    <div class="your-rate">
-                        <a >
-                            <button>
-                                Write a comment
-                                <i class="fas fa-pencil-alt"></i>
-                            </button>
-                        </a>
-                    </div>
+
                 </div>
                 <div class="socialMedia">
                     <a href="https://www.facebook.com/danangfreewalkingtour/">
@@ -493,6 +161,9 @@
                         <i class="fab fa-tripadvisor"></i>
                     </a>
                 </div>
+                <div class="contact" >
+                    <iframe width="306" th:src="${getPartNer.video}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
                 <div class="contact">
                     <div class="contact-item">
                         <a href="mailto:danangfreewalkingtour@gmail.com">
@@ -510,6 +181,7 @@
                         <a href="index.html">&copy; Da Nang Free Waking Tour</a>
                     </div>
                 </div>
+
             </div>
         </section>
     </main>

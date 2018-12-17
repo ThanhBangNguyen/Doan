@@ -42,6 +42,9 @@ public class Restaurant implements Serializable {
     @Column(name = "image")
     private String image;
 
+    @Column(name = "video")
+    private String video;
+
     @Column(name = "type")
     private Integer type;
 
@@ -163,5 +166,13 @@ public class Restaurant implements Serializable {
 
     public void setShortInfo(String shortInfo) {
         this.shortInfo = shortInfo;
+    }
+
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
     }
 }

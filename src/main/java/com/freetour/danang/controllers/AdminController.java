@@ -1,5 +1,8 @@
 package com.freetour.danang.controllers;
 
+import com.freetour.danang.dao.models.Category;
+import com.freetour.danang.dao.models.Menu;
+import com.freetour.danang.dao.models.Restaurant;
 import com.freetour.danang.dto.CategoryDTO;
 import com.freetour.danang.dto.MenuDTO;
 import com.freetour.danang.dto.RestaurantDTO;
@@ -12,12 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpSession;
 
 @RestController
-@RequestMapping(value = "/admin")
 public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @GetMapping(value = "/login")
+    @GetMapping(value = "/admin/login")
     public ModelAndView login(HttpSession session) {
         ModelAndView mav = new ModelAndView();
         if (session.getAttribute("user") != null) {
@@ -30,7 +32,7 @@ public class AdminController {
         return mav;
     }
 
-    @PostMapping(value = "/loginProcess")
+    @PostMapping(value = "/admin/loginProcess")
     public ModelAndView getLogin(UserDTO userDTO, HttpSession session)  {
         ModelAndView mav= new ModelAndView();
         mav.addObject("user",userDTO = adminService.login(userDTO));
@@ -44,14 +46,14 @@ public class AdminController {
         }
         return mav;
     }
-    @GetMapping(value = "/logout")
+    @GetMapping(value = "/admin/logout")
     public ModelAndView logout(HttpSession session) {
         ModelAndView mav = new ModelAndView();
         session.removeAttribute("user");
         mav.setViewName("redirect:/admin/login");
         return mav;
     }
-    @GetMapping(value = "/")
+    @GetMapping(value = "/admin")
     public ModelAndView getIndex(HttpSession session) {
         ModelAndView mav = new ModelAndView();
         if (session.getAttribute("user") == null){
@@ -61,7 +63,7 @@ public class AdminController {
         mav.setViewName("admin/index");
         return mav;
     }
-    @GetMapping(value = "/things-To-Do")
+    @GetMapping(value = "/admin/things-To-Do")
     public ModelAndView getThingToDo(HttpSession session){
         ModelAndView mav = new ModelAndView();
         if (session.getAttribute("user") == null){
@@ -72,7 +74,7 @@ public class AdminController {
         mav.setViewName("admin/category");
         return mav;
     }
-    @GetMapping(value = "/thing-To-Do-{id}")
+    @GetMapping(value = "/admin/thing-To-Do-{id}")
     public ModelAndView getRestaurant(@PathVariable(value = "id") Long id,HttpSession session){
         ModelAndView mav = new ModelAndView();
         if (session.getAttribute("user") == null){
@@ -83,7 +85,7 @@ public class AdminController {
         mav.setViewName("admin/store");
         return mav;
     }
-    @GetMapping(value = "/store-{id}")
+    @GetMapping(value = "/admin/store-{id}")
     public ModelAndView getMenu(@PathVariable(value = "id") Long id,HttpSession session){
         ModelAndView mav = new ModelAndView();
         if (session.getAttribute("user") == null){
@@ -94,7 +96,7 @@ public class AdminController {
         mav.setViewName("admin/menu");
         return mav;
     }
-    @GetMapping(value = "/addThingsToDo")
+    @GetMapping(value = "/admin/addThingsToDo")
     public ModelAndView getAddThingsToDo(HttpSession session){
         ModelAndView mav = new ModelAndView();
         if (session.getAttribute("user") == null){
@@ -105,14 +107,14 @@ public class AdminController {
         mav.setViewName("admin/addThingToDo");
         return mav;
     }
-    @PostMapping(value = "/addThingsToDo-Process")
+    @PostMapping(value = "/admin/addThingsToDo-Process")
     public ModelAndView getAddThingsToDoProcess(CategoryDTO categoryDTO){
         ModelAndView mav = new ModelAndView();
         mav.addObject("add",adminService.addThingToDo(categoryDTO));
         mav.setViewName("redirect:/admin/things-To-Do");
         return mav;
     }
-    @GetMapping(value = "/addRestaurant")
+    @GetMapping(value = "/admin/addRestaurant")
     public ModelAndView getAddRestaurant(HttpSession session){
         ModelAndView mav = new ModelAndView();
         if (session.getAttribute("user") == null){
@@ -124,14 +126,14 @@ public class AdminController {
         mav.setViewName("admin/addRestaurant");
         return mav;
     }
-    @PostMapping(value = "/addRestaurant-Process")
+    @PostMapping(value = "/admin/addRestaurant-Process")
     public ModelAndView getAddRestaurantProcess(RestaurantDTO restaurantDTO){
         ModelAndView mav = new ModelAndView();
         mav.addObject("add",adminService.addRestaurant(restaurantDTO));
         mav.setViewName("redirect:/admin/addRestaurant");
         return mav;
     }
-    @GetMapping(value = "/addMenu")
+    @GetMapping(value = "/admin/addMenu")
     public ModelAndView getAddMenu(HttpSession session){
         ModelAndView mav = new ModelAndView();
         if (session.getAttribute("user") == null){
@@ -143,35 +145,35 @@ public class AdminController {
         mav.setViewName("admin/addMenu");
         return mav;
     }
-    @PostMapping(value = "/addMenu-Process")
+    @PostMapping(value = "/admin/addMenu-Process")
     public ModelAndView getAddMenuProcess(MenuDTO menuDTO){
         ModelAndView mav = new ModelAndView();
         mav.addObject("add",adminService.addMenu(menuDTO));
         mav.setViewName("redirect:/admin/addMenu");
         return mav;
     }
-    @GetMapping(value = "/thingToDo-{id}-delete")
+    @GetMapping(value = "/admin/thingToDo-{id}-delete")
     public ModelAndView deleteThingToDo(@PathVariable(value = "id") Long id){
         ModelAndView mav = new ModelAndView();
-        mav.addObject("listMenu",adminService.deleteThingToDo(id));
+        mav.addObject("listCategory",adminService.deleteThingToDo(id));
         mav.setViewName("redirect:/admin/things-To-Do");
         return mav;
     }
-    @GetMapping(value = "/store-{id}-delete")
+    @GetMapping(value = "/admin/store-{id}-delete")
     public ModelAndView deleteStore(@PathVariable(value = "id") Long id){
         ModelAndView mav = new ModelAndView();
-        mav.addObject("listMenu",adminService.deleteStore(id));
+        mav.addObject("listStore",adminService.deleteStore(id));
         mav.setViewName("redirect:/admin/things-To-Do");
         return mav;
     }
-    @GetMapping(value = "/menu-{id}-delete")
+    @GetMapping(value = "/admin/menu-{id}-delete")
     public ModelAndView deleteMenu(@PathVariable(value = "id") Long id){
         ModelAndView mav = new ModelAndView();
         mav.addObject("listMenu",adminService.deleteMenu(id));
-            mav.setViewName("redirect:/admin/things-To-Do");
+        mav.setViewName("redirect:/admin/things-To-Do");
         return mav;
     }
-    @GetMapping(value = "/store-detail-{id}")
+    @GetMapping(value = "/admin/store-detail-{id}")
     public ModelAndView detailStore(@PathVariable(value = "id") Long id, HttpSession session){
         ModelAndView mav = new ModelAndView();
         if (session.getAttribute("user") == null){
@@ -182,4 +184,88 @@ public class AdminController {
         mav.setViewName("admin/detailStore");
         return mav;
     }
+
+    ///-------------------------------Edit Category--------------------------///
+
+    @GetMapping(value = "/admin/updateCategory-{id}")
+    public ModelAndView updateCategory(HttpSession session,@PathVariable(value = "id") Long id/*  ở đây chỉ lấy thông tin ra thôi chứ chưa phải cần -> nên nó báo bad Request
+    ,sau đó ra đây để gọi nó ra và modelandview qua jsp*/){
+        ModelAndView mav = new ModelAndView();
+        if (session.getAttribute("user") == null){
+            mav.setViewName("redirect:/admin/login");
+            return mav;
+        }
+
+        //Giờ muốn kiểm tra có lấy đc hay k mình thêm check: về nguyên tắc thì phải lấy được dữ liệu mới  model qua
+        Category category = adminService.findCategory(id);
+        if(category != null){
+            mav.addObject("edit",category);
+        }
+
+        mav.setViewName("admin/editCategory");
+        return mav;
+    }
+
+    @PostMapping(value = "/admin/category-process")//rồi chặn ở dòng đầu-> run->debug server-> nhấnn nút F8 , muốn kết thúc debug thì F10
+    public ModelAndView updateCategoryProcess( CategoryDTO categoryDTO){
+        ModelAndView mav = new ModelAndView();
+        adminService.updateCategory(categoryDTO);
+        mav.setViewName("redirect:/admin/things-To-Do");
+        return mav;
+    }
+    ///-------------------------------Edit Restaurant--------------------------///
+
+    @GetMapping(value = "/admin/updateRestaurant-{id}")
+    public ModelAndView updateRestaurant(HttpSession session,@PathVariable(value = "id") Long id){
+        ModelAndView mav = new ModelAndView();
+        if (session.getAttribute("user") == null){
+            mav.setViewName("redirect:/admin/login");
+            return mav;
+        }
+
+        Restaurant restaurant = adminService.findRestaurant(id);
+        if(restaurant != null){
+            mav.addObject("edit",restaurant);
+            mav.addObject("listCategory",adminService.listThingToDo());
+        }
+
+        mav.setViewName("admin/editRestaurant");
+        return mav;
+    }
+
+    @PostMapping(value = "/admin/restaurant-process")
+    public ModelAndView updateRestaurantProcess( RestaurantDTO restaurantDTO){
+        ModelAndView mav = new ModelAndView();
+        adminService.updateRestaurant(restaurantDTO);
+        mav.setViewName("redirect:/admin/things-To-Do");
+        return mav;
+    }
+    ///-------------------------------Edit Menu--------------------------///
+
+    @GetMapping(value = "/admin/updateMenu-{id}")
+    public ModelAndView updateMenu(HttpSession session,@PathVariable(value = "id") Long id){
+        ModelAndView mav = new ModelAndView();
+        if (session.getAttribute("user") == null){
+            mav.setViewName("redirect:/admin/login");
+            return mav;
+        }
+
+        Menu menu = adminService.findMenu(id);
+        if(menu != null){
+            mav.addObject("edit",menu);
+            mav.addObject("listRestaurant",adminService.listRes());
+        }
+
+        mav.setViewName("admin/editMenu");
+        return mav;
+    }
+
+    @PostMapping(value = "/admin/menu-process")
+    public ModelAndView updateMenuProcess( MenuDTO menuDTO){
+        ModelAndView mav = new ModelAndView();
+        adminService.updateMenu(menuDTO);
+        mav.setViewName("redirect:/admin/things-To-Do");
+        return mav;
+    }
+
 }

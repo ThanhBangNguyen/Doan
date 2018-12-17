@@ -1,4 +1,76 @@
 @media only screen and (min-width: 768px){div.chat{position:fixed;z-index:50;right:2%;bottom:3%}div.chat a svg{font-size:60px;color:#0084ff}div.chat div{position:absolute;z-index:-1;top:50%;left:50%;transform:translate(-50%, -50%);width:35px;height:35px;border-radius:100%;background:white}header{display:flex;flex-direction:row;padding:0 5%;height:80px;background:white;border-bottom:1px solid #FFBA00}header .toggle{display:none}header .head-img{height:100%;display:flex;align-items:center}header .head-img img{height:80%;width:80px}header .things-catalog{flex:auto;display:flex;flex-direction:row;justify-content:flex-end;align-items:center;padding-right:5%}header .things-catalog .things-but{width:10%;display:flex;flex-direction:column;align-items:center;text-align:center}header .things-catalog .things-but a{width:100%}header .things-catalog .things-but i::before{font-size:30px;margin:0}header .things-catalog .things-but p{text-align:center;font-size:15px}main{background:rgba(250,250,250,0.747)}main .list{background:none;margin:0px 10% 20px;display:flex;flex-wrap:wrap;flex-direction:row;align-items:center}main .list a{width:calc(25% - 10px);margin-left:5px;margin-right:5px}main .list a .item{margin:16px 0 0;background:white;width:calc(100%)}main .list a .item .img-item{width:100%}main .list a .item .img-item img{width:100%}main .list a .item .text-item{padding:10px;font-family:Oxygen}main .list a .item .text-item .name-item{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}main .list a .item .text-item .detail-item{font-size:15px;font-weight:bold;line-height:18px;height:36px;overflow:hidden}main .list a .item .text-item .cost-item{display:flex;font-size:15px;margin-top:3px}main .list a .item .text-item .cost-item .space{margin:0 10px;transform:translateY(-2px)}main .list .see-more{width:100%;display:flex;justify-content:flex-end}main .list .see-more .item{margin-top:10px;padding:5px 8px}main .list .see-more .selected a{color:#FFBA00}main .simple-menu-list{padding:35px 15% 25px;margin:0 auto 20px}main .simple-menu-list .simple-title{width:70%;font-size:24px;margin-bottom:20px;font-weight:bold;text-align:center}main .simple-menu-list .simple-list .simple-item{display:flex;align-items:center;margin-top:10px}main .simple-menu-list .simple-list .simple-item .name{font-size:16px;width:53%}main .simple-menu-list .simple-list .simple-item .cost-item{width:35%;display:flex;font-size:15px;line-height:24px}main .simple-menu-list .simple-list .simple-item .cost-item .space{margin:0 10px;transform:translateY(-2px);color:#FFBA00}main .simple-menu-list .simple-list .simple-item .menu-button{width:12%;text-align:right;cursor:pointer}main .simple-menu-list .simple-list .simple-item .menu-button a{border-radius:15px;padding:5px 12px;color:white !important;background:#FFBA00}main .simple-menu-list .simple-list .simple-item .menu-v2-button{width:12%;text-align:right;cursor:pointer}main .simple-menu-list .simple-list .simple-item .menu-v2-button a{border-radius:15px;padding:5px 12px;color:white !important;background:#FFBA00}main .simple-menu-list .see-more{width:100%;display:flex;justify-content:flex-end}main .simple-menu-list .see-more .item{margin-top:10px;padding:5px 8px}main .simple-menu-list .see-more .selected a{color:#FFBA00}footer{background:#282C2F;display:flex;justify-content:space-between;align-items:center;padding:20px 20%}footer .socialMedia{display:none}footer .contact .contact-item{margin:4px 0}footer .contact .contact-item a{font-size:16px;color:white}footer .contact .contact-item a svg{width:16px !important;margin-right:12px}footer .logo{width:30%;display:flex;flex-direction:column;align-items:center}footer .logo a{color:white}footer .logo .logo-img{max-width:70px;max-height:70px}footer .logo .logo-img img{width:100%}.simple-menu{left:0;background:rgba(229,229,229,0.11);width:100%;padding:30px 15%;font-family:Open Sans !important;transition:1s all ease}.simple-menu .image-cover{position:absolute;z-index:11;opacity:0.3;top:50%;left:50%;transform:translate(-50%, -50%);width:25%}.simple-menu .image-cover img{width:100%}.simple-menu .menu-content{max-width:956.2px;margin:auto;position:relative;z-index:10}.simple-menu .menu-content .shop-info{padding:0 15%;display:flex;align-items:center}.simple-menu .menu-content .shop-info .image{width:20%;border-radius:100%}.simple-menu .menu-content .shop-info .image img{width:100%;border-radius:100%;object-fit:cover}.simple-menu .menu-content .shop-info .text{padding-left:20px}.simple-menu .menu-content .shop-info .text .name{font-size:24px;font-weight:bold}.simple-menu .menu-content .shop-info .text svg{width:18px;font-size:18px;margin-right:10px}.simple-menu .menu-content .shop-info .text .phone,.simple-menu .menu-content .shop-info .text .address{font-size:16px;line-height:24px;margin-top:2px;font-weight:600}.simple-menu .menu-content .shop-info .text .phone .space,.simple-menu .menu-content .shop-info .text .address .space{height:18px;width:1px;background:black;display:inline-block;margin:0 2px;transform:translateY(3px)}.simple-menu .menu-content .background{position:relative;z-index:10;margin:15px 0;background:white;padding:30px}.simple-menu .menu-content .background .menu-title{text-align:center;margin:0 auto 10px;font-weight:bold;font-size:24px;color:#FFBA00}.simple-menu .menu-content .background .sector{position:relative;z-index:20}.simple-menu .menu-content .background .sector .list-name{width:30%;margin:auto;padding:5px 0;clip-path:polygon(100% 0, 97% 50%, 100% 100%, 0% 100%, 3% 50%, 0 0);background:#FFBA00;color:white;text-align:center;font-size:20px;font-weight:bold}.simple-menu .menu-content .background .sector .item{margin:20px auto;display:flex;flex-wrap:wrap}.simple-menu .menu-content .background .sector .item .original-name{font-weight:bold}.simple-menu .menu-content .background .sector .item .dotted{flex-grow:1;border-top:1px solid rgba(216,216,216,0.808);transform:translateY(16px);margin:0 5px}.simple-menu .menu-content .background .sector .item .trans-name{width:100%}.simple-menu .close-menu{position:absolute;z-index:50;top:15px;right:calc(15px);cursor:pointer;padding:5px;border-radius:100%;background:#FFBA00;height:40px}.simple-menu .close-menu svg{font-size:30px;width:30px;height:30px;color:white}
 .simple-menu-v2{left:0;background:rgba(229,229,229,0.11);width:100%;padding:0 15%;font-family:Open Sans !important;transition:1s all ease}
 .simple-menu-v2 .menu-content{background:white;max-width:956.2px;margin:auto;position:relative;z-index:10}
-.simple-menu-v2 .menu-content .shop-info{padding:20px 15% 0;display:flex;align-items:center;position:relative}.simple-menu-v2 .menu-content .shop-info .image{width:20%;border-radius:100%}.simple-menu-v2 .menu-content .shop-info .image img{width:100%;border-radius:100%;object-fit:cover}.simple-menu-v2 .menu-content .shop-info .text{padding-left:20px}.simple-menu-v2 .menu-content .shop-info .text .name{font-size:24px;font-weight:bold}.simple-menu-v2 .menu-content .shop-info .text svg{width:18px;font-size:18px;margin-right:10px}.simple-menu-v2 .menu-content .shop-info .text .phone,.simple-menu-v2 .menu-content .shop-info .text .address{font-size:16px;line-height:24px;margin-top:2px;font-weight:600}.simple-menu-v2 .menu-content .shop-info .text .phone .space,.simple-menu-v2 .menu-content .shop-info .text .address .space{height:18px;width:1px;background:black;display:inline-block;margin:0 2px;transform:translateY(3px)}.simple-menu-v2 .menu-content .background{position:relative;z-index:10;padding:10px 30px 30px}.simple-menu-v2 .menu-content .background .sector{position:relative;z-index:20}.simple-menu-v2 .menu-content .background .sector .list-name{width:35%;margin:0 auto 15px;padding:5px 0;clip-path:polygon(100% 0, 97% 50%, 100% 100%, 0% 100%, 3% 50%, 0 0);background:#FFBA00;color:white;text-align:center;font-size:20px;font-weight:bold}.simple-menu-v2 .menu-content .background .sector .item{width:100%;display:flex;margin:15px 0}.simple-menu-v2 .menu-content .background .sector .item .item-image{width:25%}.simple-menu-v2 .menu-content .background .sector .item .item-image img{width:100%;object-fit:cover;border-radius:15px}.simple-menu-v2 .menu-content .background .sector .item .item-text{margin-left:15px;display:flex;flex-direction:column;justify-content:space-between}.simple-menu-v2 .menu-content .background .sector .item .item-text .name{font-weight:bold}.simple-menu-v2 .menu-content .background .sector .item .item-text .cost{font-weight:bold}.simple-menu-v2 .menu-content .background .sector2{position:relative;z-index:20}.simple-menu-v2 .menu-content .background .sector2 .list-name{width:35%;margin:0 auto 15px;padding:5px 0;clip-path:polygon(100% 0, 97% 50%, 100% 100%, 0% 100%, 3% 50%, 0 0);background:#FFBA00;color:white;text-align:center;font-size:20px;font-weight:bold}.simple-menu-v2 .menu-content .background .sector2 .item{position:relative;width:100%;display:flex;margin:15px 0}.simple-menu-v2 .menu-content .background .sector2 .item .dotted{position:absolute;width:7px;height:7px;background:#FFBA00;border-radius:100%;transform:translateY(8px)}.simple-menu-v2 .menu-content .background .sector2 .item .item-image{width:25%;text-align:center}.simple-menu-v2 .menu-content .background .sector2 .item .item-image img{margin:auto;width:35%;object-fit:cover;border-radius:100%}.simple-menu-v2 .menu-content .background .sector2 .item .item-text{flex-grow:1;margin-left:20px;display:flex;flex-direction:column;justify-content:space-between}.simple-menu-v2 .menu-content .background .sector2 .item .item-text .name{font-weight:bold}.simple-menu-v2 .menu-content .background .sector2 .item .item-text .cost{font-weight:bold;position:absolute;bottom:0;right:12.5%;transform:translateX(50%)}.simple-menu-v2 .close-menu{position:absolute;z-index:50;top:15px;right:calc(10px);top:15px;cursor:pointer;padding:5px;border-radius:100%;background:#FFBA00;height:40px}.simple-menu-v2 .close-menu svg{font-size:30px;width:30px;height:30px;color:white}}
+.simple-menu-v2 .menu-content .shop-info{padding:20px 15% 0;display:flex;align-items:center;position:relative}
+    .simple-menu-v2 .menu-content .shop-info .image{width:20%;border-radius:100%}.simple-menu-v2 .menu-content .shop-info .image img{width:100%;border-radius:100%;object-fit:cover}.simple-menu-v2 .menu-content .shop-info .text{padding-left:20px}.simple-menu-v2 .menu-content .shop-info .text .name{font-size:24px;font-weight:bold}.simple-menu-v2 .menu-content .shop-info .text svg{width:18px;font-size:18px;margin-right:10px}.simple-menu-v2 .menu-content .shop-info .text .phone,.simple-menu-v2 .menu-content .shop-info .text .address{font-size:16px;line-height:24px;margin-top:2px;font-weight:600}.simple-menu-v2 .menu-content .shop-info .text .phone .space,.simple-menu-v2 .menu-content .shop-info .text .address .space{height:18px;width:1px;background:black;display:inline-block;margin:0 2px;transform:translateY(3px)}.simple-menu-v2 .menu-content .background{position:relative;z-index:10;padding:10px 30px 30px}.simple-menu-v2 .menu-content .background .sector{position:relative;z-index:20}.simple-menu-v2 .menu-content .background .sector .list-name{width:35%;margin:0 auto 15px;padding:5px 0;clip-path:polygon(100% 0, 97% 50%, 100% 100%, 0% 100%, 3% 50%, 0 0);background:#FFBA00;color:white;text-align:center;font-size:20px;font-weight:bold}.simple-menu-v2 .menu-content .background .sector .item{width:100%;display:flex;margin:15px 0}.simple-menu-v2 .menu-content .background .sector .item .item-image{width:25%;text-align: center;}
+    .simple-menu-v2 .menu-content .background .sector .item .item-image img{
+
+        width: 100%;
+        object-fit: cover;
+        border-radius: 15px;}
+    .simple-menu-v2 .menu-content .background .sector .item .item-text{margin-left: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: calc(75% - 15px);}
+    .simple-menu-v2 .menu-content .background .sector .item .item-text .name{
+        font-weight:bold
+    }
+    .simple-menu-v2 .menu-content .background .sector .item .item-text .cost{
+                                font-weight: bold;}
+    .simple-menu-v2 .menu-content .background .sector2{
+        position:relative;z-index:20
+    }.simple-menu-v2 .menu-content .background .sector2 .list-name{
+             width: 35%;
+             margin: 0 auto 15px;
+             padding: 5px 0;
+             clip-path: polygon(100% 0, 97% 50%, 100% 100%, 0% 100%, 3% 50%, 0 0);
+             background: #FFBA00;
+             color: white;
+             text-align: center;
+             font-size: 20px;
+             font-weight: bold;
+         }
+    .simple-menu-v2 .menu-content .background .sector2 .item{
+        position: relative;
+        width: 100%;
+        display: flex;
+        margin: 15px 0;
+    }.simple-menu-v2 .menu-content .background .sector2 .item .dotted{
+             position: absolute;
+             width: 7px;
+             height: 7px;
+             background: #FFBA00;
+             border-radius: 100%;
+             transform: translateY(8px);
+         }
+    .simple-menu-v2 .menu-content .background .sector2 .item .item-image{
+                       width: 25%;
+                       text-align: center;
+                   }
+    .simple-menu-v2 .menu-content .background .sector2 .item .item-image img{
+        margin: auto;
+        width: 35%;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+    .simple-menu-v2 .menu-content .background .sector2 .item .item-text{
+        flex-grow: 1;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: calc(75% - 15px);
+    }.simple-menu-v2 .menu-content .background .sector2 .item .item-text .name{
+             font-weight:bold
+         }.simple-menu-v2 .menu-content .background .sector2 .item .item-text .cost{
+                       font-weight:bold;
+                       position:absolute;
+                       bottom:0;
+                       right:12.5%;
+                       transform:translateX(50%)
+                   }
+    .simple-menu-v2 .close-menu{
+        position:absolute;z-index:50;top:15px;right:calc(10px);top:15px;cursor:pointer;padding:5px;border-radius:100%;background:#FFBA00;height:40px
+    }
+    .simple-menu-v2 .close-menu svg{font-size:30px;width:30px;height:30px;color:white}}

@@ -33,40 +33,10 @@
             </a>
         </div>
         <div class="things-catalog">
-            <div class="things-but">
-                <a href="/catalog-eat">
-                    <i class="flaticon-ramen"></i>
-                    <p>Eat</p>
-                </a>
-            </div>
-            <div class="things-but">
-                <a href="/catalog-drink">
-                    <i class="flaticon-cocktail"></i>
-                    <p>Drink</p>
-                </a>
-            </div>
-            <div class="things-but">
-                <a href="catalog.html">
-                    <i class="flaticon-bed"></i>
-                    <p>Stay</p>
-                </a>
-            </div>
-            <div class="things-but">
-                <a href="catalog.html">
-                    <i class="flaticon-leaf"></i>
-                    <p>Relax</p>
-                </a>
-            </div>
-            <div class="things-but">
-                <a href="catalog.html">
-                    <i class="flaticon-joker"></i>
-                    <p>Entertain</p>
-                </a>
-            </div>
-            <div class="things-but">
-                <a href="catalog.html">
-                    <i class="flaticon-gift"></i>
-                    <p>Gift</p>
+            <div class="things-but" th:each="list:${listThingtodo}">
+                <a th:href="@{/web-catalog-{id}(id=${list.id})}">
+                    <i th:class="${list.nameClass}"></i>
+                    <p th:text="${list.name}"></p>
                 </a>
             </div>
         </div>

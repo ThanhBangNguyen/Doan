@@ -34,4 +34,22 @@ public interface AdminService {
     List<RestaurantDTO> listRes();
 
     RestaurantDTO detailStore(Long id);
+
+    //-------------------Detail  Menu----------------------//
+    MenuDTO detailMenu(Long id);
+
+
+    //-------------------Edit Category---------------------//
+    Category findCategory(Long id);
+    void updateCategory( CategoryDTO categoryDTO);
+
+
+    ////---------------Edit Restaurant-------------------///
+    Restaurant findRestaurant(Long id);
+    void updateRestaurant(RestaurantDTO restaurantDTO);
+
+    ////---------------Edit Menu-------------------///
+    Menu findMenu(Long id);
+    void updateMenu(MenuDTO menuDTO);
+
 }

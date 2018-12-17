@@ -181,7 +181,6 @@ public class AdminServiceImpl implements AdminService {
         restaurantDTO.setPriceUS(restaurant.getPriceUS());
         restaurantDTO.setInfo(restaurant.getInfo());
         restaurantDTO.setShortInfo(restaurant.getShortInfo());
-
         CategoryDTO categoryDTO = new CategoryDTO();
         categoryDTO.setName(restaurant.getCategory().getName());
 
@@ -189,4 +188,110 @@ public class AdminServiceImpl implements AdminService {
 
         return restaurantDTO;
     }
+    @Override
+    public Category findCategory(Long id) {
+        Category category = categoryRepository.findCategory(id);
+        return category;
+    }
+    @Override
+    public void updateCategory( CategoryDTO categoryDTO) {
+        Optional<Category> categoryOptional = categoryRepository.findById(categoryDTO.getId());
+        if( categoryOptional.isPresent()){
+            Category category =categoryOptional.get();
+            category.setName(categoryDTO.getName());
+            categoryRepository.save(category);
+        }
+
+    }
+    //-------------Edit Restaurant--------------------//
+
+    @Override
+    public Restaurant findRestaurant(Long id) {
+        Restaurant restaurant = restaurantRepository.findRestaurant(id);
+        return restaurant;
+    }
+
+    @Override
+    public void updateRestaurant( RestaurantDTO restaurantDTO) {
+        Optional<Restaurant> restaurantOptional = restaurantRepository.findById(restaurantDTO.getId());
+        if( restaurantOptional.isPresent()){
+            Restaurant restaurant =restaurantOptional.get();
+            restaurant.setName(restaurantDTO.getName());
+            restaurant.setPhone(restaurantDTO.getPhone());
+            restaurant.setAddress(restaurantDTO.getAddress());
+            restaurant.setPriceVN(restaurantDTO.getPriceVN());
+            restaurant.setPriceUS(restaurantDTO.getPriceUS());
+            restaurant.setImage(restaurantDTO.getImage());
+            restaurant.setTimeOC(restaurantDTO.getOpenCloseTime());
+            restaurant.setLinkMap(restaurantDTO.getLinkMap());
+            restaurant.setInfo(restaurantDTO.getInfo());
+            restaurant.setShortInfo(restaurantDTO.getShortInfo());
+            restaurant.setType(restaurantDTO.getType());
+            Optional<Category> categoryOptional = categoryRepository.findById(restaurantDTO.getCategory().getId());
+            if (categoryOptional.isPresent()){
+                restaurant.setCategory(categoryOptional.get());
+            }
+
+            restaurantRepository.save(restaurant);
+        }
+    }
+
+
+    //-------------Edit Menu--------------------//
+
+    @Override
+    public Menu findMenu(Long id) {
+        Menu menu = menuRepository.findMenu(id);
+        return menu;
+    }
+
+    @Override
+    public void updateMenu( MenuDTO menuDTO) {
+        Optional<Menu> menuOptional = menuRepository.findById(menuDTO.getId());
+        if( menuOptional.isPresent()){
+            Menu menu = menuOptional.get();
+            menu.setName(menuDTO.getName());
+            menu.setDescription(menuDTO.getDescription());
+            menu.setPrice(menuDTO.getPrice());
+            menu.setImage(menuDTO.getImage());
+            menu.setFeatured(menuDTO.getFeatured());
+            menu.setType(menuDTO.getType());
+
+            /*
+            *  if (!menu.getRestaurant().getId().equals(menuDTO.getRestaurant().getId())) {
+                Optional<Restaurant> restaurantOptional = restaurantRepository.findById(menuDTO.getRestaurant().getId());
+                if (restaurantOptional.isPresent()) {
+                    menu.setRestaurant(restaurantOptional.get());
+                }
+            }*/
+
+
+
+            menuRepository.save(menu);
+
+
+        }
+    }
+
+
+    @Override
+    public MenuDTO detailMenu(Long id) {
+        Menu menu = menuRepository.detailMenu(id);
+        MenuDTO menuDTO = new MenuDTO();
+        menuDTO.setId(menu.getId());
+        menuDTO.setName(menu.getName());
+        menuDTO.setDescription(menu.getDescription());
+        menuDTO.setPrice(menu.getPrice());
+        menuDTO.setImage(menu.getImage());
+        menuDTO.setFeatured(menu.getFeatured());
+        menuDTO.setType(menu.getType());
+
+        RestaurantDTO restaurantDTO = new RestaurantDTO();
+        restaurantDTO.setName(menu.getRestaurant().getName());
+
+        menuDTO.setRestaurant(restaurantDTO);
+
+        return menuDTO;
+    }
+
 }

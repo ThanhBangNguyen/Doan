@@ -22,4 +22,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     // List Restaurant theo id trong web
     @Query(value = "SELECT * FROM restaurant WHERE category_id = ?1 and type=1", nativeQuery = true)
     List<Restaurant> listStore(Long id);
+    @Query(value = "SELECT * FROM restaurant WHERE restaurant_id = ?1", nativeQuery = true)
+    Restaurant findRestaurant(Long id);//ở đây  dùng Restaurant để hứng dữ liệu
+
 }
