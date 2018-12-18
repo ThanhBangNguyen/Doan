@@ -100,7 +100,7 @@ public class AdminServiceImpl implements AdminService {
         restaurant.setPriceUS(restaurantDTO.getPriceUS());
         restaurant.setPriceVN(restaurantDTO.getPriceVN());
         restaurant.setShortInfo(restaurantDTO.getShortInfo());
-        restaurant.setTimeOC(restaurantDTO.getOpenCloseTime());
+        restaurant.setTimeOC(restaurantDTO.getTimeOC());
         restaurant.setType(restaurantDTO.getType());
         Optional<Category> categoryOptional = categoryRepository.findById(restaurantDTO.getCategory().getId());
         if (categoryOptional.isPresent()){
@@ -176,7 +176,7 @@ public class AdminServiceImpl implements AdminService {
         restaurantDTO.setAddress(restaurant.getAddress());
         restaurantDTO.setPriceVN(restaurant.getPriceVN());
         restaurantDTO.setImage(restaurant.getImage());
-        restaurantDTO.setOpenCloseTime(restaurant.getTimeOC());
+        restaurantDTO.setTimeOC(restaurant.getTimeOC());
         restaurantDTO.setLinkMap(restaurant.getLinkMap());
         restaurantDTO.setPriceUS(restaurant.getPriceUS());
         restaurantDTO.setInfo(restaurant.getInfo());
@@ -212,7 +212,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void updateRestaurant( RestaurantDTO restaurantDTO) {
+    public Object updateRstaurant( RestaurantDTO restaurantDTO) {
         Optional<Restaurant> restaurantOptional = restaurantRepository.findById(restaurantDTO.getId());
         if( restaurantOptional.isPresent()){
             Restaurant restaurant =restaurantOptional.get();
@@ -222,7 +222,7 @@ public class AdminServiceImpl implements AdminService {
             restaurant.setPriceVN(restaurantDTO.getPriceVN());
             restaurant.setPriceUS(restaurantDTO.getPriceUS());
             restaurant.setImage(restaurantDTO.getImage());
-            restaurant.setTimeOC(restaurantDTO.getOpenCloseTime());
+            restaurant.setTimeOC(restaurantDTO.getTimeOC());
             restaurant.setLinkMap(restaurantDTO.getLinkMap());
             restaurant.setInfo(restaurantDTO.getInfo());
             restaurant.setShortInfo(restaurantDTO.getShortInfo());
@@ -234,6 +234,7 @@ public class AdminServiceImpl implements AdminService {
 
             restaurantRepository.save(restaurant);
         }
+        return null;
     }
 
 
@@ -246,7 +247,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void updateMenu( MenuDTO menuDTO) {
+    public Object updateMenu( MenuDTO menuDTO) {
         Optional<Menu> menuOptional = menuRepository.findById(menuDTO.getId());
         if( menuOptional.isPresent()){
             Menu menu = menuOptional.get();
@@ -256,21 +257,13 @@ public class AdminServiceImpl implements AdminService {
             menu.setImage(menuDTO.getImage());
             menu.setFeatured(menuDTO.getFeatured());
             menu.setType(menuDTO.getType());
-
-            /*
-            *  if (!menu.getRestaurant().getId().equals(menuDTO.getRestaurant().getId())) {
-                Optional<Restaurant> restaurantOptional = restaurantRepository.findById(menuDTO.getRestaurant().getId());
-                if (restaurantOptional.isPresent()) {
-                    menu.setRestaurant(restaurantOptional.get());
-                }
-            }*/
-
-
-
+            Optional<Restaurant> restaurantOptional = restaurantRepository.findById(menuDTO.getRestaurant().getId());
+            if (restaurantOptional.isPresent()){
+                menu.setRestaurant(restaurantOptional.get());
+            }
             menuRepository.save(menu);
-
-
         }
+        return null;
     }
 
 
@@ -294,4 +287,31 @@ public class AdminServiceImpl implements AdminService {
         return menuDTO;
     }
 
+    @Override
+    public List<UserDTO> listUser() {
+        List<UserDTO> userDTOS = new ArrayList<>();
+        List<User> users =userRepository.findUser();
+        for (User user:users){
+            UserDTO userDTO = new UserDTO();
+            userDTO.setId(user.getId());
+            userDTO.setUsername(user.getUsername());
+            userDTOS.add(userDTO);
+        }
+        return userDTOS;
+    }
+
+    @Override
+    public UserDTO loginBoss(UserDTO userDTO) {
+        User user = userRepository.bossLogin(userDTO.getUsername(),userDTO.getPassword());
+        if (user != null){
+            userDTO.setId(user.getId());
+        }
+        return userDTO;
+    }
+
+    @Override
+    public User deleteUser(Long id) {
+        userRepository.deleteById(id);
+        return null;
+    }
 }

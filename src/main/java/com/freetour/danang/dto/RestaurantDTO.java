@@ -10,7 +10,7 @@ public class RestaurantDTO {
     private String info;
     private String shortInfo;
     private String address;
-    private String openCloseTime;
+    private String timeOC;
     private String phone;
     private String linkMap;
     private String image;
@@ -30,7 +30,7 @@ public class RestaurantDTO {
                 ", info='" + info + '\'' +
                 ", shortInfo='" + shortInfo + '\'' +
                 ", address='" + address + '\'' +
-                ", openCloseTime='" + openCloseTime + '\'' +
+                ", timeOC='" + timeOC + '\'' +
                 ", phone='" + phone + '\'' +
                 ", linkMap='" + linkMap + '\'' +
                 ", image='" + image + '\'' +
@@ -106,6 +106,14 @@ public class RestaurantDTO {
         this.priceVN = priceVN;
     }
 
+    public String getTimeOC() {
+        return timeOC;
+    }
+
+    public void setTimeOC(String timeOC) {
+        this.timeOC = timeOC;
+    }
+
     public List<MenuDTO> getMenus() {
         return menus;
     }
@@ -138,13 +146,7 @@ public class RestaurantDTO {
         this.address = address;
     }
 
-    public String getOpenCloseTime() {
-        return openCloseTime;
-    }
 
-    public void setOpenCloseTime(String openCloseTime) {
-        this.openCloseTime = openCloseTime;
-    }
 
     public String getPhone() {
         return phone;

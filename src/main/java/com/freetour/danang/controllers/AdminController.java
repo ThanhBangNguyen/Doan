@@ -3,6 +3,7 @@ package com.freetour.danang.controllers;
 import com.freetour.danang.dao.models.Category;
 import com.freetour.danang.dao.models.Menu;
 import com.freetour.danang.dao.models.Restaurant;
+import com.freetour.danang.dao.models.User;
 import com.freetour.danang.dto.CategoryDTO;
 import com.freetour.danang.dto.MenuDTO;
 import com.freetour.danang.dto.RestaurantDTO;
@@ -74,7 +75,54 @@ public class AdminController {
         mav.setViewName("admin/category");
         return mav;
     }
-    @GetMapping(value = "/admin/thing-To-Do-{id}")
+
+    @GetMapping(value = "/sign-in")
+    public ModelAndView signIn(HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        if (session.getAttribute("user") != null) {
+            mav.setViewName("redirect:/bossAdmin");
+        } else {
+            mav.addObject("admin", new UserDTO());
+            mav.setViewName("admin/account");
+        }
+        return mav;
+    }
+    @PostMapping(value = "/loginProcess")
+    public ModelAndView signIn(UserDTO userDTO, HttpSession session)  {
+        ModelAndView mav= new ModelAndView();
+        mav.addObject("admin",userDTO = adminService.loginBoss(userDTO));
+        if (userDTO.getId() != null) {
+            session.setAttribute("user", userDTO);
+            session.removeAttribute("error");
+            mav.setViewName("redirect:/bossAdmin");
+        } else {
+            mav.addObject("user", new UserDTO());
+            mav.setViewName("admin/account");
+        }
+        return mav;
+    }
+
+    @GetMapping(value ="/bossAdmin")
+    public ModelAndView getUser(HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        if (session.getAttribute("user") == null){
+            mav.setViewName("redirect:/sign-in");
+            return mav;
+        }
+        mav.addObject("listUser",adminService.listUser());
+        mav.setViewName("admin/user");
+        return mav;
+    }
+
+    @GetMapping(value = "/user-{id}-delete")
+    public ModelAndView deleteUser(@PathVariable(value = "id") Long id){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("listUser",adminService.deleteUser(id));
+        mav.setViewName("redirect:/bossAdmin");
+        return mav;
+    }
+
+    @GetMapping(value ="/admin/thing-To-Do-{id}")
     public ModelAndView getRestaurant(@PathVariable(value = "id") Long id,HttpSession session){
         ModelAndView mav = new ModelAndView();
         if (session.getAttribute("user") == null){
@@ -184,6 +232,19 @@ public class AdminController {
         mav.setViewName("admin/detailStore");
         return mav;
     }
+    ///--------------------------------Detail Menu  --------------------------///
+    @GetMapping(value = "admin/menu-detail-{id}")
+    public ModelAndView detailMenu(@PathVariable(value = "id") Long id, HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        if (session.getAttribute("user") == null){
+            mav.setViewName("redirect:/admin/login");
+            return mav;
+        }
+        mav.addObject("detail",adminService.detailMenu(id));
+        mav.setViewName("admin/detailMenu");
+        return mav;
+    }
+
 
     ///-------------------------------Edit Category--------------------------///
 
@@ -236,7 +297,7 @@ public class AdminController {
     @PostMapping(value = "/admin/restaurant-process")
     public ModelAndView updateRestaurantProcess( RestaurantDTO restaurantDTO){
         ModelAndView mav = new ModelAndView();
-        adminService.updateRestaurant(restaurantDTO);
+        mav.addObject("edit",adminService.updateRstaurant(restaurantDTO));
         mav.setViewName("redirect:/admin/things-To-Do");
         return mav;
     }
@@ -263,9 +324,8 @@ public class AdminController {
     @PostMapping(value = "/admin/menu-process")
     public ModelAndView updateMenuProcess( MenuDTO menuDTO){
         ModelAndView mav = new ModelAndView();
-        adminService.updateMenu(menuDTO);
+        mav.addObject("edit",adminService.updateMenu(menuDTO));
         mav.setViewName("redirect:/admin/things-To-Do");
         return mav;
     }
-
 }

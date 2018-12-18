@@ -71,7 +71,7 @@ public class ThingToDoServiceImpl implements ThingToDoService{
         restaurantDTO.setInfo(restaurant.getInfo());
         restaurantDTO.setAddress(restaurant.getAddress());
         restaurantDTO.setImage(restaurant.getImage());
-        restaurantDTO.setOpenCloseTime(restaurant.getTimeOC());
+        restaurantDTO.setTimeOC(restaurant.getTimeOC());
         restaurantDTO.setPriceUS(restaurant.getPriceUS());
         restaurantDTO.setPriceVN(restaurant.getPriceVN());
         restaurantDTO.setPhone(restaurant.getPhone());
