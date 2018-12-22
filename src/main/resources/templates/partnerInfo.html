@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DANANGFREEWALKINGTOUR</title>
+    <link rel="shortcut icon" href="./images/logo-changed.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oxygen" rel="stylesheet">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/slick-theme.css">
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="icon/flaticon.css">
-    <link rel="stylesheet" href="css/partnerInfo/common.partnerInfo.css">
-    <link rel="stylesheet" href="css/partnerInfo/desktop.partnerInfo.css">
-    <link rel="stylesheet" href="css/partnerInfo/mobile.partnerInfo.css">
+    <link rel="stylesheet" th:href="@{css/animate.css}">
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{css/slick-theme.css}">
+    <link rel="stylesheet" th:href="@{css/slick.css}">
+    <link rel="stylesheet" th:href="@{icon/flaticon.css}">
+    <link rel="stylesheet" th:href="@{css/partnerInfo/common.partnerInfo.css}">
+    <link rel="stylesheet" th:href="@{css/partnerInfo/desktop.partnerInfo.css}">
+    <link rel="stylesheet" th:href="@{css/partnerInfo/mobile.partnerInfo.css}">
 </head>
 
 <body>
@@ -28,15 +29,15 @@
     <!-- header -->
     <header>
         <div class="head-img">
-            <a href="/">
-                <img src="images/logo-changed.png" >
+            <a th:href="@{/}">
+                <img th:src="@{images/logo-changed.png}" >
             </a>
         </div>
         <div class="things-catalog">
             <div class="things-but" th:each="list:${listThingtodo}">
                 <a th:href="@{/web-catalog-{id}(id=${list.id})}">
                     <i th:class="${list.nameClass}"></i>
-                    <p th:text="${list.name}"></p>
+                    <p style="text-transform: uppercase" th:text="${list.name}"></p>
                 </a>
             </div>
         </div>
@@ -44,7 +45,7 @@
     <!-- MAIN -->
     <main>
         <section class="cover">
-            <img src="images/thingstodo-cover.png" >
+            <img th:src="${getPartNer.banner}" >
         </section>
         <section class="info">
             <div class="info-avt">
@@ -69,7 +70,7 @@
                 </div>
                 <div class="info-item">
                     <i class="fas fa-tag"></i>
-                    <p th:text="${getPartNer.priceUS}"> | <span th:text="${getPartNer.priceVN}">39.000đ - 79.000đ</span></p>
+                    <p th:text="${getPartNer.priceUS}"> | <span th:text="${getPartNer.priceVN}"></span></p>
                 </div>
             </div>
         </section>
@@ -125,9 +126,6 @@
                     <div class="address-detail" th:text="${getPartNer.address}">
                     </div>
                     <div class="address-guide">
-                        <a >
-                            Get directions
-                        </a>
                     </div>
                     <hr>
                     <div class="phone">
@@ -195,9 +193,9 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/wow.js"></script>
-    <script src="js/partnerInfo.script.js"></script>
+    <script th:src="@{js/slick.min.js}"></script>
+    <script th:src="@{js/wow.js}"></script>
+    <script th:src="@{js/partnerInfo.script.js}"></script>
 </body>
 
 </html>

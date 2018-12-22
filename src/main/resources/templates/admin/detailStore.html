@@ -158,13 +158,16 @@
                               <label ><p>Image </p><img th:src="${detail.image}" width="25%"></label>
                             </div>
                             <div class="form-group">
+                              <label ><p>Image </p><img th:src="${detail.banner}" width="30%"></label>
+                            </div>
+                            <div class="form-group">
                               <label ><p>Short Info : </p><span th:text="${detail.shortInfo}"> : Ten</span></label>
                             </div>
                             <div class="form-group">                              
                               <label ><p>Phone : </p><span th:text="${detail.phone}"> : Ten</span></label>
                             </div>
                             <div class="form-group">
-                              <label ><p>Open and Close Time : </p><span th:text="${detail.openCloseTime}"> : Ten</span></label>
+                              <label ><p>Open and Close Time : </p><span th:text="${detail.timeOC}"> : Ten</span></label>
                             </div>
                             <div class="form-group">
                               <label ><p>Link Map </p><iframe th:src="${detail.linkMap}"

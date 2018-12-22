@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DANANGFREEWALKINGTOUR</title>
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="icon/flaticon.css">
-    <link rel="stylesheet" href="css/slick-theme.css">
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="css/home/common.css">
-    <link rel="stylesheet" href="css/home/desktop.css">
-    <link rel="stylesheet" href="css/home/mobile.css">
+    <link rel="shortcut icon" href="./images/logo-changed.png" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{css/animate.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{icon/flaticon.css}">
+    <link rel="stylesheet" th:href="@{css/slick-theme.css}">
+    <link rel="stylesheet" th:href="@{css/slick.css}">
+    <link rel="stylesheet" th:href="@{css/home/common.css}">
+    <link rel="stylesheet" th:href="@{css/home/desktop.css}">
+    <link rel="stylesheet" th:href="@{css/home/mobile.css}">
     <link href="https://fonts.googleapis.com/css?family=Neucha|Oxygen" rel="stylesheet">
 </head>
 
@@ -28,7 +29,7 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <img src="images/logo-changed.png" class="lazy">
+            <img th:src="@{images/logo-changed.png}" class="lazy">
         </div>
         <div class="info">
             <div class="info-item">
@@ -67,7 +68,7 @@
     <main>
         <section class="cover">
             <div class="img-overlay">
-                <img src="images/DNFWT- Cover1.png" class="lazy">
+                <img th:src="@{images/DNFWT- Cover1.png}" class="lazy">
             </div>
             <div class="cover-text">
                 <div class="cover-title">
@@ -327,7 +328,7 @@
                 <div class="things-but" th:each="list:${listThingtodo}">
                     <a th:href="@{/web-catalog-{id}(id=${list.id})}">
                         <i th:class="${list.nameClass}"></i>
-                        <p th:text="${list.name}"></p>
+                        <p style="text-transform: uppercase" th:text="${list.name}"></p>
                     </a>
                 </div>
             </div>

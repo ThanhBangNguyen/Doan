@@ -102,6 +102,7 @@ public class AdminServiceImpl implements AdminService {
         restaurant.setShortInfo(restaurantDTO.getShortInfo());
         restaurant.setTimeOC(restaurantDTO.getTimeOC());
         restaurant.setType(restaurantDTO.getType());
+        restaurant.setBanner(restaurantDTO.getBanner());
         Optional<Category> categoryOptional = categoryRepository.findById(restaurantDTO.getCategory().getId());
         if (categoryOptional.isPresent()){
             restaurant.setCategory(categoryOptional.get());
@@ -181,6 +182,7 @@ public class AdminServiceImpl implements AdminService {
         restaurantDTO.setPriceUS(restaurant.getPriceUS());
         restaurantDTO.setInfo(restaurant.getInfo());
         restaurantDTO.setShortInfo(restaurant.getShortInfo());
+        restaurantDTO.setBanner(restaurant.getBanner());
         CategoryDTO categoryDTO = new CategoryDTO();
         categoryDTO.setName(restaurant.getCategory().getName());
 
@@ -227,6 +229,7 @@ public class AdminServiceImpl implements AdminService {
             restaurant.setInfo(restaurantDTO.getInfo());
             restaurant.setShortInfo(restaurantDTO.getShortInfo());
             restaurant.setType(restaurantDTO.getType());
+            restaurant.setBanner(restaurantDTO.getBanner());
             Optional<Category> categoryOptional = categoryRepository.findById(restaurantDTO.getCategory().getId());
             if (categoryOptional.isPresent()){
                 restaurant.setCategory(categoryOptional.get());

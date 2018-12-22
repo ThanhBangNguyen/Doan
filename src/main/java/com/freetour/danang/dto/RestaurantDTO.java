@@ -17,6 +17,7 @@ public class RestaurantDTO {
     private String video;
     private Integer type;
     private Boolean featured;
+    private String banner;
     private List<MenuDTO> menus;
     private CategoryDTO category;
 
@@ -37,6 +38,7 @@ public class RestaurantDTO {
                 ", video='" + video + '\'' +
                 ", type=" + type +
                 ", featured=" + featured +
+                ", banner='" + banner + '\'' +
                 ", menus=" + menus +
                 ", category=" + category +
                 '}';
@@ -146,7 +148,13 @@ public class RestaurantDTO {
         this.address = address;
     }
 
+    public String getBanner() {
+        return banner;
+    }
 
+    public void setBanner(String banner) {
+        this.banner = banner;
+    }
 
     public String getPhone() {
         return phone;

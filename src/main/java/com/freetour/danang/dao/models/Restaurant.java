@@ -48,6 +48,9 @@ public class Restaurant implements Serializable {
     @Column(name = "type")
     private Integer type;
 
+    @Column(name = "banner")
+    private String banner;
+
 
     @OneToMany(mappedBy = "restaurant", fetch = FetchType.EAGER)
     private Set<Menu> menus;
@@ -174,5 +177,13 @@ public class Restaurant implements Serializable {
 
     public void setVideo(String video) {
         this.video = video;
+    }
+
+    public String getBanner() {
+        return banner;
+    }
+
+    public void setBanner(String banner) {
+        this.banner = banner;
     }
 }

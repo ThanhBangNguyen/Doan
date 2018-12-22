@@ -150,6 +150,10 @@
                               <input type="text" class="form-control" placeholder="Link" th:field="*{image}">
                             </div>
                             <div class="form-group">
+                              <label >Banner</label>
+                              <input type="text" class="form-control" placeholder="Link" th:field="*{banner}">
+                            </div>
+                            <div class="form-group">
                               <label >Short Info</label>
                               <input type="text" class="form-control" placeholder="Short Info" th:field="*{shortInfo}">
                             </div>
@@ -159,7 +163,7 @@
                                 <input type="text" class="form-control" id="feInputCity" placeholder="0900000000" th:field="*{phone}"> </div>
                               <div class="form-group col-md-4">
                                 <label for="inputZip">Open and Close Time</label>
-                                <input type="text" class="form-control" id="inputZip" placeholder="7:00am - 12:00pm" th:field="*{openCloseTime}"> </div>
+                                <input type="text" class="form-control" id="inputZip" placeholder="7:00am - 12:00pm" th:field="*{timeOC}"> </div>
                               <div class="form-group col-md-4">
                                 <label for="feInputCity">Type</label>
                                 <select class="form-control" th:field="*{type}" >
@@ -174,7 +178,7 @@
                             </div>
                             <div class="form-group">
                               <label >Info</label>
-                              <textarea  class="form-control" placeholder="Write Info" th:field="*{info}"></textarea>
+                              <textarea  class="form-control" placeholder="Write Info" th:field="*{info}" rows="5"></textarea>
                             </div>
                             <button type="submit" class="btn btn-accent">ADD RESTAURANT</button>
                           </form>

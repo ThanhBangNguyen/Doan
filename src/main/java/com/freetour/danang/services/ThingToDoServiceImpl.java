@@ -78,6 +78,7 @@ public class ThingToDoServiceImpl implements ThingToDoService{
         restaurantDTO.setType(restaurant.getType());
         restaurantDTO.setLinkMap(restaurant.getLinkMap());
         restaurantDTO.setVideo(restaurant.getVideo());
+        restaurantDTO.setBanner(restaurant.getBanner());
 
         return restaurantDTO;
     }

@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DANANGFREEWALKINGTOUR</title>
+    <link rel="shortcut icon" href="./images/logo-changed.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oxygen" rel="stylesheet">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/slick-theme.css">
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="icon/flaticon.css">
-    <link rel="stylesheet" href="css/catalog/common.catalog.css">
-    <link rel="stylesheet" href="css/catalog/desktop.catalog.css">
-    <link rel="stylesheet" href="css/catalog/mobile.catalog.css">
+    <link rel="stylesheet" th:href="@{css/animate.css}">
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{css/slick-theme.css}">
+    <link rel="stylesheet" th:href="@{css/slick.css}">
+    <link rel="stylesheet" th:href="@{icon/flaticon.css}">
+    <link rel="stylesheet" th:href="@{css/catalog/common.catalog.css}">
+    <link rel="stylesheet" th:href="@{css/catalog/desktop.catalog.css}">
+    <link rel="stylesheet" th:href="@{css/catalog/mobile.catalog.css}">
 </head>
 
 <body>
@@ -29,14 +30,14 @@
     <header>
         <div class="head-img">
             <a href="/">
-                <img src="images/logo-changed.png">
+                <img th:src="@{images/logo-changed.png}">
             </a>
         </div>
         <div class="things-catalog">
             <div class="things-but" th:each="list:${listThingtodo}">
                 <a th:href="@{/web-catalog-{id}(id=${list.id})}">
                     <i th:class="${list.nameClass}"></i>
-                    <p th:text="${list.name}"></p>
+                    <p style="text-transform: uppercase" th:text="${list.name}"></p>
                 </a>
             </div>
         </div>
