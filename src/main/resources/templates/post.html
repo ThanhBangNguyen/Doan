@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -17,267 +17,197 @@
 </head>
 
 <body>
-    <!-- Chat with us -->
-    <div class="chat wow bounceInLeft" data-wow-delay="1s">
-        <a href="https://m.me/danangfreewalkingtour" target="_blank">
-            <i class="fab fa-facebook-messenger"></i>
+<!-- Chat with us -->
+<div class="chat wow bounceInLeft" data-wow-delay="1s">
+    <a href="https://m.me/danangfreewalkingtour" target="_blank">
+        <i class="fab fa-facebook-messenger"></i>
+    </a>
+    <div></div>
+</div>
+<!-- Header -->
+<header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="images/logo-changed.png" class="lazy">
         </a>
-        <div></div>
     </div>
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="images/logo-changed.png" class="lazy">
-            </a>
+    <div class="info">
+        <div class="info-item">
+            <div class="info-number">49+</div>
+            <div class="info-text">Tour Guides</div>
         </div>
-        <div class="info">
-            <div class="info-item">
-                <div class="info-number">49+</div>
-                <div class="info-text">Tour Guides</div>
+        <div class="info-item">
+            <div class="info-number">2489+</div>
+            <div class="info-text">Happy Clients</div>
+        </div>
+        <div class="info-item">
+            <div class="info-number">1896+</div>
+            <div class="info-text">Tours</div>
+        </div>
+    </div>
+    <div class="contact">
+        <a href="https://www.facebook.com/danangfreewalkingtour/" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.youtube.com/channel/UCo8UN9Csv2pC0tMOSVAZD6g" target="_blank">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://plus.google.com/118025859778243251042" target="_blank">
+            <i class="fab fa-google-plus-g"></i>
+        </a>
+        <a href="https://www.instagram.com/danangfreewalkingtour/" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tripadvisor.com.vn/Attraction_Review-g298085-d11949997-Reviews-Da_Nang_Free_Walking_Tour-Da_Nang_Quang_Nam_Province.html"
+           target="_blank">
+            <i class="fab fa-tripadvisor"></i>
+        </a>
+    </div>
+</header>
+<!-- MAIN -->
+<main>
+    <div class="article">
+        <div class="title" th:text="${readNews.newTitle}">
+           <!--- Students Offer Free Walking Tour to foreign tourist in Da Nang --->
+        </div>
+        <div class="text-contain" th:utext="${readNews.infor}">
+
+        </div>
+
+
+        <div class="author">
+            <div class="by" th:text="${readNews.sourceAuthor}">
+                <!--By Tuoi Tre News--->
             </div>
-            <div class="info-item">
-                <div class="info-number">2489+</div>
-                <div class="info-text">Happy Clients</div>
+            <div class="time" th:text="${readNews.date}">
+                <!--Aug. 23, 2018--->
             </div>
-            <div class="info-item">
-                <div class="info-number">1896+</div>
-                <div class="info-text">Tours</div>
+            <div class="share-it">
+                <a href="">
+                    <i class="flaticon-share"></i>
+                </a>
             </div>
         </div>
-        <div class="contact">
-            <a href="https://www.facebook.com/danangfreewalkingtour/" target="_blank">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.youtube.com/channel/UCo8UN9Csv2pC0tMOSVAZD6g" target="_blank">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a href="https://plus.google.com/118025859778243251042" target="_blank">
-                <i class="fab fa-google-plus-g"></i>
-            </a>
-            <a href="https://www.instagram.com/danangfreewalkingtour/" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.tripadvisor.com.vn/Attraction_Review-g298085-d11949997-Reviews-Da_Nang_Free_Walking_Tour-Da_Nang_Quang_Nam_Province.html"
-                target="_blank">
-                <i class="fab fa-tripadvisor"></i>
-            </a>
+    </div>
+    <div class="read-more">
+        <div class="title">
+            Read More
         </div>
-    </header>
-    <!-- MAIN -->
-    <main>
-        <div class="article">
-            <div class="title">
-                Students Offer Free Walking Tour to foreign tourist in Da Nang
-            </div>
-            <div class="text-contain">
-                Based on a “pay what you think is fair” model, the ‘Danang Free Walking Tour’ project focuses on
-                providing customers with
-                full, satisfying, and local experiences that visitors might otherwise miss during their trip to Da Nang
-                –
-                one of central Vietnam’s main tourist hubs.
-            </div>
-            <div class="img-contain">
-                <img data-src="images/news1.jpg" alt="">
-            </div>
-            <div class="text-contain">
-                Breathtaking scenery, unique sights, and beautiful beaches are the main draw to Vietnam’s third largest
-                city, and the largest
-                city in the central region.
-                <br>
-                <br> The tours’ main goal is to help visitors experience the city from a local point of view, and
-                hopefully walk
-                away with a long-lasting positive impression.
-                <br>
-                <br> The program’s success is chiefly attributed to the enthusiasm and excitement of its tour guides –
-                volunteer
-                university students from institutions across Da Nang – and the diversity of the tourist sites customers
-                are
-                introduced to during the ninety-minute tour, including Han Market, Da Nang Cathedral, the Cham
-                Sculpture
-                Museum, and the Han River Bridge.
-                <br>
-                <br> XP and Kathy from Hong Kong are just two out of hundreds of international tourists impressed by
-                the tour.
-                <br>
-                <br> The couple had nothing but praise for their energetic tour guide, Sofia, from the University of
-                Foreign
-                Languages in Da Nang.
-                <br>
-                <br> “Sofia is very passionate and knows a lot about the city. Her casual and friendly smile made the
-                tour unforgettable,”
-                Kathy said.
-            </div>
-            <div class="img-contain">
-                <img data-src="images/news2.jpg" alt="">
-            </div>
-            <div class="text-contain">
-                Thanks to her, we learnt a lot about the history, culture, and lives of people here. This city is truly
-                beautiful and has
-                really impressed us. There are many things that we would probably never have learned had it not been
-                for
-                her enthusiasm and understanding. I will certainly recommend this tour to my friends.”
-                <br>
-                <br> Le Thi Thu Hang, an English major at the University of Foreign Languages in Da Nang, is another
-                volunteer
-                who began working with the project in August 2017.
-                <br>
-                <br> Her preparation to become a tour guide included research into the city’s history, culture, and
-                traditions
-                so as to provide tourists with useful and interesting information they might not find elsewhere.
-                <br>
-                <br> “Thanks to this tour I have a chance to improve my language skills by speaking with foreigners, as
-                well
-                as learning about other countries’ cultures,” Hang said about her experience working for the ‘Danang
-                Free
-                Walking Tour.’
-                <br>
-                <br> “I have introduced many interesting things about Da Nang to foreign tourists and most have come to
-                the conclusion
-                that this is a city worth living in for its beautiful scenery, good infrastructure, variety of foods,
-                and
-                friendly people.”
-                <br>
-                <br> Le Song Gia Han, another volunteer tour guide, has been with the project for nearly a year. The
-                foreign
-                trade student at the University of Economics in Da Nang has already guided nearly around 100 tours.
-                <br>
-                <br> According to Han, volunteers stand to gain a lot from working with the program.
-                <br>
-                <br> She says that apart from the chance to improve foreign language skills, their understanding of
-                tourism also
-                improves considerably.
-                <br>
-            </div>
-            <div class="author">
-                <div class="by">
-                    By Tuoi Tre News
+        <hr>
+        <div class="big-item">
+            <a href="">
+                <div class="text">
+                    <div class="item-title" th:text="${firstNew.newTitle}">
+                        <!--Student offer free walking tours to foreign tourists in Da Nang--->
+                    </div>
+                    <hr>
+                    <div class="item-desc" th:text="${firstNew.shortInfor}">
+                        <!--Based on a “pay what you think is fair” model, the ‘Danang Free Walking Tour’ project
+                        focuses
+                        on providing customers with
+                        full, satisfying, and local experiences that visitors might otherwise miss during their
+                        trip to
+                        Da
+                        Nang – one of central Vietnam’s main tourist hubs.--->
+
+                    </div>
                 </div>
-                <div class="time">
-                    Aug. 23, 2018
+                <div class="img">
+                    <img th:src="${firstNew.linkImage}" alt="">
                 </div>
-                <div class="share-it">
-                    <a href="">
-                        <i class="flaticon-share"></i>
-                    </a>
+            </a>
+        </div>
+        <div class="small-item" >
+            <a  th:each="list2:${listNew}" th:href="@{/readNews-{id}(id=${list2.id})}">
+                <div class="item">
+                    <div class="img-item">
+                        <img th:src="${list2.linkImage}" alt="" style="padding-right: 10px" >
+                    </div>
+                    <div class="text-item" th:text="${list2.newTitle}">
+                       <!-- Student offer free walking tours to foreign tourists in Da Nang -->
+                    </div>
+                    <div class="article-by" th:text="${list2.sourceAuthor}">
+                        <!-- Student offer free walking tours to foreign tourists in Da Nang -->
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="read-more">
-            <div class="title">
-                Read More
-            </div>
-            <hr>
-            <div class="big-item">
-                <a href="">
-                    <div class="text">
-                        <div class="item-title">
-                            Student offer free walking tours to foreign tourists in Da Nang
-                        </div>
-                        <hr>
-                        <div class="item-desc">
-                            Based on a “pay what you think is fair” model, the ‘Danang Free Walking Tour’ project
-                            focuses
-                            on providing customers with
-                            full, satisfying, and local experiences that visitors might otherwise miss during their
-                            trip to
-                            Da
-                            Nang – one of central Vietnam’s main tourist hubs.
-                        </div>
-                    </div>
-                    <div class="img">
-                        <img data-src="images/Cau-vang-Da-Nang-thu-hut-hon-7-trieu-follower-tren-Instagram-1.jpg" alt="">
-                    </div>
-                </a>
-            </div>
-            <div class="small-item">
-                <a href="">
-                    <div class="item">
-                        <div class="img-item">
-                            <img data-src="images/love bridge.png" alt="">
-                        </div>
-                        <div class="text-item">
-                            Student offer free walking tours to foreign tourists in Da Nang
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="item">
-                        <div class="img-item">
-                            <img data-src="images/student offer free.png" alt="">
-                        </div>
-                        <div class="text-item">
-                            Student offer free walking tours to foreign tourists in Da Nang
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="item">
-                        <div class="img-item">
-                            <img data-src="images/student offer.png" alt="">
-                        </div>
-                        <div class="text-item">
-                            Student offer free walking tours to foreign tourists in Da Nang
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </main>
-    <!-- FOOTER -->
-    <footer>
-        <div class="socialMedia">
-            <a href="https://www.facebook.com/danangfreewalkingtour/" target="_blank">
-                <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://www.youtube.com/channel/UCo8UN9Csv2pC0tMOSVAZD6g" target="_blank">
-                <i class="fab fa-youtube"></i>
+            <!--<a href="">
+                <div class="item">
+                    <div class="img-item">
+                        <img data-src="images/student offer free.png" alt="">
+                    </div>
+                    <div class="text-item">
+                        Student offer free walking tours to foreign tourists in Da Nang
+                    </div>
+                </div>
             </a>
-            <a href="https://plus.google.com/118025859778243251042" target="_blank">
-                <i class="fab fa-google-plus-g"></i>
-            </a>
-            <a href="https://www.instagram.com/danangfreewalkingtour/" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.tripadvisor.com.vn/Attraction_Review-g298085-d11949997-Reviews-Da_Nang_Free_Walking_Tour-Da_Nang_Quang_Nam_Province.html"
-                target="_blank">
-                <i class="fab fa-tripadvisor"></i>
-            </a>
+            <a href="">
+                <div class="item">
+                    <div class="img-item">
+                        <img data-src="images/student offer.png" alt="">
+                    </div>
+                    <div class="text-item">
+                        Student offer free walking tours to foreign tourists in Da Nang
+                    </div>
+                </div>
+            </a>-->
         </div>
-        <div class="contact">
-            <div class="contact-item">
-                <a href="mailto:danangfreewalkingtour@gmail.com" target="_blank">
-                    <i class="far fa-envelope"></i>danangfreewalkingtour@gmail.com</a>
-            </div>
-            <div class="contact-item">
-                <a href="https://www.google.com/maps/place/Trung+t%C3%A2m+H%E1%BB%97+tr%E1%BB%A3+Du+kh%C3%A1ch+%C4%90%C3%A0+N%E1%BA%B5ng+-+Da+Nang+Visitor+Center/@16.0684951,108.224932,15z/data=!4m2!3m1!1s0x0:0x3f2ff49b9ac833f3?sa=X&ved=2ahUKEwilia3whuLcAhXBfd4KHQU6CXYQ_BIwCnoECAoQCw"
-                    target="_blank">
-                    <i class="fas fa-map-marker-alt"></i>108 Bach Dang street, Da Nang, Viet Nam</a>
-            </div>
-            <div class="contact-item">
-                <a href="tel:+84 90 563 1419">
-                    <i class="fas fa-phone" data-fa-transform="rotate-90"></i>+84 90 563 1419</a>
-            </div>
+    </div>
+</main>
+<!-- FOOTER -->
+<footer>
+    <div class="socialMedia">
+        <a href="https://www.facebook.com/danangfreewalkingtour/" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.youtube.com/channel/UCo8UN9Csv2pC0tMOSVAZD6g" target="_blank">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://plus.google.com/118025859778243251042" target="_blank">
+            <i class="fab fa-google-plus-g"></i>
+        </a>
+        <a href="https://www.instagram.com/danangfreewalkingtour/" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tripadvisor.com.vn/Attraction_Review-g298085-d11949997-Reviews-Da_Nang_Free_Walking_Tour-Da_Nang_Quang_Nam_Province.html"
+           target="_blank">
+            <i class="fab fa-tripadvisor"></i>
+        </a>
+    </div>
+    <div class="contact">
+        <div class="contact-item">
+            <a href="mailto:danangfreewalkingtour@gmail.com" target="_blank">
+                <i class="far fa-envelope"></i>danangfreewalkingtour@gmail.com</a>
         </div>
-        <div class="logo">
-            <div class="logo-img">
-                <img src="images/logo.png">
-            </div>
-            <div class="logo-text">
-                <a href="index.html">&copy; Da Nang Free Walking Tour</a>
-            </div>
+        <div class="contact-item">
+            <a href="https://www.google.com/maps/place/Trung+t%C3%A2m+H%E1%BB%97+tr%E1%BB%A3+Du+kh%C3%A1ch+%C4%90%C3%A0+N%E1%BA%B5ng+-+Da+Nang+Visitor+Center/@16.0684951,108.224932,15z/data=!4m2!3m1!1s0x0:0x3f2ff49b9ac833f3?sa=X&ved=2ahUKEwilia3whuLcAhXBfd4KHQU6CXYQ_BIwCnoECAoQCw"
+               target="_blank">
+                <i class="fas fa-map-marker-alt"></i>108 Bach Dang street, Da Nang, Viet Nam</a>
         </div>
-    </footer>
-    <!-- Script Here -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        <div class="contact-item">
+            <a href="tel:+84 90 563 1419">
+                <i class="fas fa-phone" data-fa-transform="rotate-90"></i>+84 90 563 1419</a>
+        </div>
+    </div>
+    <div class="logo">
+        <div class="logo-img">
+            <img src="images/logo.png">
+        </div>
+        <div class="logo-text">
+            <a href="index.html">&copy; Da Nang Free Walking Tour</a>
+        </div>
+    </div>
+</footer>
+<!-- Script Here -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="js/lazyload.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+<script src="js/lazyload.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
         crossorigin="anonymous"></script>
-    <script src="js/wow.js"></script>
-    <script src="js/post.script.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/post.script.js"></script>
 </body>
 
 </html>

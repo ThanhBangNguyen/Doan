@@ -22,6 +22,17 @@ public class User {
     @Column(name = "phone")
     private String phone;
 
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Roles role;
+
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id")
+
+    private Restaurant restaurantUs;
+
+
+
     public Long getId() {
         return id;
     }
@@ -60,5 +71,21 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Roles getRole() {
+        return role;
+    }
+
+    public void setRole(Roles role) {
+        this.role = role;
+    }
+
+    public Restaurant getRestaurantUs() {
+        return restaurantUs;
+    }
+
+    public void setRestaurantUs(Restaurant restaurantUs) {
+        this.restaurantUs = restaurantUs;
     }
 }

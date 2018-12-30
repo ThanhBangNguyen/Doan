@@ -1,17 +1,8 @@
 package com.freetour.danang.services;
 
-import com.freetour.danang.dao.models.Category;
-import com.freetour.danang.dao.models.Menu;
-import com.freetour.danang.dao.models.Restaurant;
-import com.freetour.danang.dao.models.User;
-import com.freetour.danang.dao.repositories.CategoryRepository;
-import com.freetour.danang.dao.repositories.MenuRepository;
-import com.freetour.danang.dao.repositories.RestaurantRepository;
-import com.freetour.danang.dao.repositories.UserRepository;
-import com.freetour.danang.dto.CategoryDTO;
-import com.freetour.danang.dto.MenuDTO;
-import com.freetour.danang.dto.RestaurantDTO;
-import com.freetour.danang.dto.UserDTO;
+import com.freetour.danang.dao.models.*;
+import com.freetour.danang.dao.repositories.*;
+import com.freetour.danang.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,12 +17,14 @@ public class AdminServiceImpl implements AdminService {
     private RestaurantRepository restaurantRepository;
     private MenuRepository menuRepository;
     private UserRepository userRepository;
+    private NewRepository newRepository;
 
-    public AdminServiceImpl(CategoryRepository categoryRepository, RestaurantRepository restaurantRepository, MenuRepository menuRepository, UserRepository userRepository) {
+    public AdminServiceImpl(CategoryRepository categoryRepository, RestaurantRepository restaurantRepository, MenuRepository menuRepository, UserRepository userRepository ,NewRepository newRepository) {
         this.categoryRepository = categoryRepository;
         this.restaurantRepository = restaurantRepository;
         this.menuRepository = menuRepository;
         this.userRepository = userRepository;
+        this.newRepository = newRepository;
     }
 
     @Override
@@ -104,6 +97,7 @@ public class AdminServiceImpl implements AdminService {
         restaurant.setType(restaurantDTO.getType());
         restaurant.setBanner(restaurantDTO.getBanner());
         Optional<Category> categoryOptional = categoryRepository.findById(restaurantDTO.getCategory().getId());
+        //tìm thử cái id  của Restaurant có trong bảng Catelog hay không. Nếu có mới lấy nó thêm  cho cái nhà hàng được
         if (categoryOptional.isPresent()){
             restaurant.setCategory(categoryOptional.get());
         }
@@ -161,11 +155,29 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public UserDTO login(UserDTO userDTO) {
-        User user = userRepository.findByAdmin(userDTO.getUsername(),userDTO.getPassword());
+        User user = userRepository.adminLogin(userDTO.getUsername(),userDTO.getPassword());
         if (user != null){
             userDTO.setId(user.getId());
+            userDTO.setUsername(user.getUsername());
+            userDTO.setEmail(user.getEmail());
+            userDTO.setPhone(user.getPhone());
+
+            RoleDTO roleDTO = new RoleDTO();
+            roleDTO.setId(user.getRole().getId());
+            roleDTO.setRoleName(user.getRole().getRoleName());
+            userDTO.setRole(roleDTO);
+
+            RestaurantDTO restaurantDTO = new RestaurantDTO();
+            restaurantDTO.setId(user.getRestaurantUs().getId());
+            restaurantDTO.setName(user.getRestaurantUs().getName());
+            userDTO.setRestaurantUs(restaurantDTO);
+
+
         }
+        //List<Category> listCategory = categoryRepository.findCategory(userDTO.getRestaurantUs().getId());
+
         return userDTO;
+
     }
 
     @Override
@@ -184,9 +196,14 @@ public class AdminServiceImpl implements AdminService {
         restaurantDTO.setShortInfo(restaurant.getShortInfo());
         restaurantDTO.setBanner(restaurant.getBanner());
         CategoryDTO categoryDTO = new CategoryDTO();
+        //Set category của Nhà hàng cần hiển thị ra sẽ  là 1 cái categoryDTO hiển  thị ra (thuộc kiểu Category)
+        // và categoryDTO = category trong  nhà hàng (restaurant.getCategory().getName())
+        categoryDTO.setName(restaurant.getCategory().getName());
+        restaurantDTO.setCategory(categoryDTO);
+       /* CategoryDTO categoryDTO = new CategoryDTO();
         categoryDTO.setName(restaurant.getCategory().getName());
 
-        restaurantDTO.setCategory(categoryDTO);
+        restaurantDTO.setCategory(categoryDTO);*/
 
         return restaurantDTO;
     }
@@ -316,5 +333,79 @@ public class AdminServiceImpl implements AdminService {
     public User deleteUser(Long id) {
         userRepository.deleteById(id);
         return null;
+    }
+    /*---------------List New-------------------*/
+
+    @Override
+    public List<NewDTO> listNew() {
+        List<NewDTO> newDTOS = new ArrayList<>();
+        List<New> news = newRepository.findAll();
+        for (New  aNew :news){
+            NewDTO newDTO = new NewDTO();
+            newDTO.setId(aNew.getId());
+            newDTO.setNewTitle(aNew.getNewTitle());
+            newDTO.setShortInfor(aNew.getShortInfor());
+            newDTO.setInfor(aNew.getInfor());
+            newDTO.setLinkImage(aNew.getLinkImage());
+            newDTO.setSourceAuthor(aNew.getSourceAuthor());
+            newDTO.setDate(aNew.getDate());
+            newDTOS.add(newDTO);
+        }
+        return newDTOS;
+    }
+
+    @Override
+    public NewDTO addNew(NewDTO newDTO) {
+        New aNew = new New();
+        aNew.setNewTitle(newDTO.getNewTitle());
+        aNew.setInfor(newDTO.getInfor());
+        aNew.setShortInfor(newDTO.getShortInfor());
+        aNew.setLinkImage(newDTO.getLinkImage());
+        aNew.setSourceAuthor(newDTO.getSourceAuthor());
+        aNew.setDate(newDTO.getDate());
+        newRepository.save(aNew);
+        return null;
+    }
+
+    @Override
+    public New deleteNews(Long id) {
+        newRepository.deleteById(id);
+        return null;
+    }
+
+    @Override
+    public New findNew(Long id) {
+        New news = newRepository.findNew(id);
+        return news;
+    }
+
+    @Override
+    public void updateNews(NewDTO newDTO) {
+        Optional<New> newOptional = newRepository.findById(newDTO.getId());
+        if( newOptional.isPresent()){
+            New aNew = newOptional.get();
+            aNew.setNewTitle(newDTO.getNewTitle());
+            aNew.setInfor(newDTO.getInfor());
+            aNew.setShortInfor(newDTO.getShortInfor());
+            aNew.setSourceAuthor(newDTO.getSourceAuthor());
+            aNew.setDate(newDTO.getDate());
+            aNew.setLinkImage(newDTO.getLinkImage());
+            newRepository.save(aNew);
+        }
+    }
+
+    @Override
+    public NewDTO detailNews(Long id) {
+        New aNew = newRepository.findNew(id);
+        NewDTO newDTO = new NewDTO();
+        newDTO.setId(aNew.getId());
+        newDTO.setNewTitle(aNew.getNewTitle());
+        newDTO.setInfor(aNew.getInfor());
+        newDTO.setSourceAuthor(aNew.getSourceAuthor());
+        newDTO.setShortInfor(aNew.getShortInfor());
+        newDTO.setDate(aNew.getDate());
+        newDTO.setLinkImage(aNew.getLinkImage());
+
+        return newDTO;
     }
 }

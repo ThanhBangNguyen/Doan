@@ -10,19 +10,7 @@ public class MenuDTO {
     private String type;
     private RestaurantDTO restaurant;
 
-    @Override
-    public String toString() {
-        return "MenuDTO{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", image='" + image + '\'' +
-                ", featured=" + featured +
-                ", price=" + price +
-                ", type='" + type + '\'' +
-                ", restaurant=" + restaurant +
-                '}';
-    }
+
 
     public Boolean getFeatured() {
         return featured;

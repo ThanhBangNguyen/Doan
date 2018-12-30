@@ -1,13 +1,7 @@
 package com.freetour.danang.controllers;
 
-import com.freetour.danang.dao.models.Category;
-import com.freetour.danang.dao.models.Menu;
-import com.freetour.danang.dao.models.Restaurant;
-import com.freetour.danang.dao.models.User;
-import com.freetour.danang.dto.CategoryDTO;
-import com.freetour.danang.dto.MenuDTO;
-import com.freetour.danang.dto.RestaurantDTO;
-import com.freetour.danang.dto.UserDTO;
+import com.freetour.danang.dao.models.*;
+import com.freetour.danang.dto.*;
 import com.freetour.danang.services.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -38,9 +32,22 @@ public class AdminController {
         ModelAndView mav= new ModelAndView();
         mav.addObject("user",userDTO = adminService.login(userDTO));
         if (userDTO.getId() != null) {
-            session.setAttribute("user", userDTO);
-            session.removeAttribute("error");
-            mav.setViewName("redirect:/admin/");
+
+            if(userDTO.getRole().getId()!= 1) {
+                session.setAttribute("user", userDTO);
+                mav.addObject("listMenu",adminService.listMenu(userDTO.getRestaurantUs().getId()));
+
+                session.removeAttribute("error");
+                mav.setViewName("admin/menu");
+
+            }
+            else {
+                session.setAttribute("user", userDTO);
+                session.removeAttribute("error");
+                mav.setViewName("redirect:/admin/");
+            }
+
+            //
         } else {
             mav.addObject("user", new UserDTO());
             mav.setViewName("admin/login");
@@ -326,6 +333,82 @@ public class AdminController {
         ModelAndView mav = new ModelAndView();
         mav.addObject("edit",adminService.updateMenu(menuDTO));
         mav.setViewName("redirect:/admin/things-To-Do");
+        return mav;
+    }
+
+    /*-------------------------------------- Tin Tức ----------------------------*/
+    @GetMapping(value = "/admin/list-new")
+    public ModelAndView getListNews(HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        if (session.getAttribute("user") == null){
+            mav.setViewName("redirect:/admin/login");
+            return mav;
+        }
+        mav.addObject("listNew",adminService.listNew());
+        mav.setViewName("admin/listNew");
+        return mav;
+    }
+    @GetMapping(value = "/admin/addNew")
+    public ModelAndView addNew(HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        if (session.getAttribute("user") == null){
+            mav.setViewName("redirect:/admin/login");
+            return mav;
+        }
+        mav.addObject("addNew",new NewDTO());
+        mav.setViewName("admin/addNew");
+        return mav;
+    }
+    @PostMapping(value = "/admin/addNew-Process")
+    public ModelAndView addNewProcess(NewDTO newDTO){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("add",adminService.addNew(newDTO));
+        mav.setViewName("redirect:/admin/list-new");
+        return mav;
+    }
+    @GetMapping(value = "/admin/deleteNews/{id}")
+    public ModelAndView deleteNews(@PathVariable(value = "id") Long id){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("deleteNews",adminService.deleteNews(id));
+        mav.setViewName("redirect:/admin/list-new");
+        return mav;
+    }
+    /*-----------------------------UpDate News------------------------- */
+
+    @GetMapping(value = "/admin/updateNews-{id}")
+    public ModelAndView updateNews(HttpSession session,@PathVariable(value = "id") Long id){
+        ModelAndView mav = new ModelAndView();
+        if (session.getAttribute("user") == null){
+            mav.setViewName("redirect:/admin/login");
+            return mav;
+        }
+
+        New aNew = adminService.findNew(id);
+        if(aNew != null){
+            mav.addObject("editNew",aNew);
+        }
+
+        mav.setViewName("admin/editNew");
+        return mav;
+    }
+
+    @PostMapping(value = "/admin/updateNews-process")
+    public ModelAndView updateNewsProcess( NewDTO newDTO){
+        ModelAndView mav = new ModelAndView();
+        adminService.updateNews(newDTO);
+        mav.setViewName("redirect:/admin/list-new");
+        return mav;
+    }
+    /* -----------------------------Detail News -------------------------------------- */
+    @GetMapping(value = "/admin/detailNews-{id}")
+    public ModelAndView detailNews(@PathVariable(value = "id") Long id, HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        if (session.getAttribute("user") == null){
+            mav.setViewName("redirect:/admin/login");
+            return mav;
+        }
+        mav.addObject("detailNews",adminService.detailNews(id));
+        mav.setViewName("admin/detailNews");
         return mav;
     }
 }

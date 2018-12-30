@@ -10,15 +10,6 @@ public class CategoryDTO {
     private String nameClass;
     private List<RestaurantDTO> restaurants;
 
-    @Override
-    public String toString() {
-        return "CategoryDTO{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", nameClass='" + nameClass + '\'' +
-                ", restaurants=" + restaurants +
-                '}';
-    }
 
     public Long getId() {
         return id;

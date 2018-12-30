@@ -61,9 +61,10 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/admin/things-To-Do">
-                  <i class="material-icons">vertical_split</i>
-                  <span>Things To Do</span>
+                <a class="nav-link " href="/admin/things-To-Do"  th:each="list : ${listMenu}" >
+                  <i type="hidden" class="material-icons">vertical_split</i>
+
+                  <span  th:if="${list.getId() != null}" type="hidden">Things To Do</span>
                 </a>
               </li>
             </ul>
@@ -97,7 +98,7 @@
                     <a class="dropdown-item" href="add-new-post.html">
                       <i class="material-icons">note_add</i> Add New Post</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" th:href="@{/logout}">
+                    <a class="dropdown-item text-danger" th:href="@{/admin/logout}">
                       <i class="material-icons text-danger">&#xE879;</i> Logout </a>
                   </div>
                 </li>
@@ -142,7 +143,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                      <tr th:each="list : ${listMenu}">
+                      <tr th:each="list : ${listMenu} ">
                         <td th:text="${list.id}"></td>
                         <td th:text="${list.name}"></td>
                         <td th:text="${list.price}"></td>
@@ -185,7 +186,7 @@
               </li>
             </ul>
             <span class="copyright ml-auto my-auto mr-2">Copyright © 2018
-              <a href="https://designrevision.com" rel="nofollow">Wit Bus</a>
+              <a href="https://designrevision.com" rel="nofollow">DN Free WalkingTour</a>
             </span>
           </footer>
         </main>

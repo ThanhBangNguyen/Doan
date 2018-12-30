@@ -6,17 +6,10 @@ public class UserDTO {
     private String password;
     private String email;
     private String phone;
+    private RoleDTO  role;
+    private RestaurantDTO restaurantUs;
 
-    @Override
-    public String toString() {
-        return "UserDTO{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
-    }
+
 
     public Long getId() {
         return id;
@@ -56,5 +49,21 @@ public class UserDTO {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public RoleDTO getRole() {
+        return role;
+    }
+
+    public void setRole(RoleDTO role) {
+        this.role = role;
+    }
+
+    public RestaurantDTO getRestaurantUs() {
+        return restaurantUs;
+    }
+
+    public void setRestaurantUs(RestaurantDTO restaurantUs) {
+        this.restaurantUs = restaurantUs;
     }
 }

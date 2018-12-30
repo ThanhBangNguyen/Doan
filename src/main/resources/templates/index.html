@@ -15,6 +15,7 @@
     <link rel="stylesheet" th:href="@{css/home/desktop.css}">
     <link rel="stylesheet" th:href="@{css/home/mobile.css}">
     <link href="https://fonts.googleapis.com/css?family=Neucha|Oxygen" rel="stylesheet">
+
 </head>
 
 <body>
@@ -340,89 +341,62 @@
             <div class="news">
                 <div class="items-list">
                     <div class="big-item">
-                        <a href="post.html">
-                            <div class="article">
+                        <a th:href="@{/readNews-{id}(id=${firstNew.id})}" >
+                            <div class="article"><!--First New --->
                                 <div class="article-img">
-                                    <img data-src="images/Cau-vang-Da-Nang-thu-hut-hon-7-trieu-follower-tren-Instagram-1.jpg"
-                                        alt="">
+                                    <img th:src="${firstNew.linkImage}"
+                                         alt="">
                                 </div>
-                                <div class="article-title">
-                                    Student offer free walking tours to foreign tourists in Da Nang
+                                <div class="article-title" th:text="${firstNew.newTitle}">
+
                                 </div>
-                                <div class="article-desc">
-                                    Tourists get a chance to experience Da Nang's cuisine, culture, and history under a
-                                    very new perspective
+                                <div class="article-desc" th:text="${firstNew.shortInfor}">
+
                                 </div>
                                 <div class="article-by">
-                                    Tuoi tre News<div class="space"></div>July 18, 2018
+                                    <div class="us" th:text="${firstNew.sourceAuthor}" style="float: left">
+
+                                    </div>
+                                    <div class="space" style="float: left"></div>
+                                    <div class="vn" th:text="${firstNew.date}" style="float: left">
+
+                                    </div>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="normal-items">
-                        <div class="item">
-                            <a href="post.html">
+                        <div class="item" th:each="list2:${listNew}" style="padding-bottom: 10px">
+                            <a th:href="@{/readNews-{id}(id=${list2.id})}">
                                 <div class="article">
                                     <div class="article-img">
-                                        <img data-src="images/Cau-vang-Da-Nang-thu-hut-hon-7-trieu-follower-tren-Instagram-1.jpg"
-                                            alt="">
+                                        <img th:src="${list2.linkImage}"
+                                             alt="">
                                     </div>
-                                    <div class="article-title">
-                                        Student offer free walking tours to foreign tourists in Da Nang
+                                    <div class="article-title" th:text="${list2.newTitle}">
+
                                     </div>
+
+
                                     <div class="article-by">
-                                        Tuoi tre News<div class="space"></div>July 18, 2018
+                                        <div class="us" th:text="${list2.sourceAuthor}" style="float: left">
+
+                                        </div>
+                                        <div class="space" style="float: left"></div>
+                                        <div class="vn" th:text="${list2.date}" style="float: left">
+
+                                        </div>
                                     </div>
+
+
                                 </div>
                             </a>
                         </div>
-                        <div class="item">
-                            <a href="post.html">
-                                <div class="article">
-                                    <div class="article-img">
-                                        <img data-src="images/walking tour.png" alt="">
-                                    </div>
-                                    <div class="article-title">
-                                        Student offer free walking tours to foreign tourists in Da Nang
-                                    </div>
-                                    <div class="article-by">
-                                        Tuoi tre News<div class="space"></div>July 18, 2018
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="post.html">
-                                <div class="article">
-                                    <div class="article-img">
-                                        <img data-src="images/student offer.png" alt="">
-                                    </div>
-                                    <div class="article-title">
-                                        Student offer free walking tours to foreign tourists in Da Nang
-                                    </div>
-                                    <div class="article-by">
-                                        Tuoi tre News<div class="space"></div>July 18, 2018
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="post.html">
-                                <div class="article">
-                                    <div class="article-img">
-                                        <img data-src="images/student offer free.png" alt="">
-                                    </div>
-                                    <div class="article-title">
-                                        Student offer free walking tours to foreign tourists in Da Nang
-                                    </div>
-                                    <div class="article-by">
-                                        Tuoi tre News<div class="space"></div>July 18, 2018
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+
+
+
                     </div>
-                </div>
+                </div><!----end items-list-->
                 <div class="more-button">
                     <div class="left-button">
                         <i class="flaticon-left-arrow"></i>

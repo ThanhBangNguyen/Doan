@@ -1,28 +1,45 @@
 package com.freetour.danang.controllers;
 
-import com.freetour.danang.dto.CategoryDTO;
-import com.freetour.danang.dto.Reponse.Response;
+import com.freetour.danang.services.NewService;
 import com.freetour.danang.services.ThingToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.List;
 
 @RestController
 public class ThingToDoController {
     @Autowired
     private ThingToDoService thingToDoService;
+    @Autowired
+    private NewService newService;
+
 
     @GetMapping(value = "/")
     public ModelAndView getIndex(){
         ModelAndView mav = new ModelAndView();
         mav.addObject("listThingtodo",thingToDoService.getListThingToDo());
+        mav.addObject("firstNew",newService.findNew());
+        mav.addObject("listNew",newService.listNew());
         mav.setViewName("index");
+
         return mav;
     }
+
+
+
+
+    /*-------------------------- Tin Tức ------------------------------*/
+    @GetMapping(value = "/readNews-{id}")
+    public ModelAndView readNews(@PathVariable(value = "id") Long id){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("firstNew",newService.findNew());
+        mav.addObject("listNew",newService.listNew());
+        mav.addObject("readNews",newService.readNews(id));
+        mav.setViewName("post");
+        return mav;
+    }
+    /*-------------------------- Tin Tức ------------------------------*/
     @GetMapping(value = "/web-catalog-{id}")
     public ModelAndView getCatalogEat(@PathVariable(value = "id") Long id){
         ModelAndView mav = new ModelAndView();

@@ -52,36 +52,16 @@ public class Restaurant implements Serializable {
     private String banner;
 
 
-    @OneToMany(mappedBy = "restaurant", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "restaurant", fetch = FetchType.EAGER)//restaurant là của menu
     private Set<Menu> menus;
+
+    @OneToMany(mappedBy = "restaurantUs", fetch = FetchType.EAGER)//restaurantUs là của User
+    private Set<User> users;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public Set<Menu> getMenus() {
-        return menus;
-    }
-
-    public void setMenus(Set<Menu> menus) {
-        this.menus = menus;
-    }
 
     public Long getId() {
         return id;
@@ -89,14 +69,6 @@ public class Restaurant implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
     }
 
     public String getName() {
@@ -171,6 +143,14 @@ public class Restaurant implements Serializable {
         this.shortInfo = shortInfo;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public String getVideo() {
         return video;
     }
@@ -179,11 +159,43 @@ public class Restaurant implements Serializable {
         this.video = video;
     }
 
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
     public String getBanner() {
         return banner;
     }
 
     public void setBanner(String banner) {
         this.banner = banner;
+    }
+
+    public Set<Menu> getMenus() {
+        return menus;
+    }
+
+    public void setMenus(Set<Menu> menus) {
+        this.menus = menus;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

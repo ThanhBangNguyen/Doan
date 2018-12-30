@@ -1,7 +1,7 @@
 package com.freetour.danang.dao.repositories;
 
 import com.freetour.danang.dao.models.Menu;
-import com.freetour.danang.dao.models.Restaurant;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

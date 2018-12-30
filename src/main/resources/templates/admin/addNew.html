@@ -12,6 +12,7 @@
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="../styles/shards-dashboards.1.1.0.min.css">
     <link rel="stylesheet" href="../styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="//cdn.ckeditor.com/4.11.1/full/ckeditor.js"></script>
 </head>
 <body class="h-100">
 
@@ -51,7 +52,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="/admin/things-To-Do">
-                            <i class="material-icons">edit</i>
+                            <i class="material-icons">vertical_split</i>
                             <span>Things To Do</span>
                         </a>
                     </li>
@@ -105,90 +106,91 @@
                 <div class="page-header row no-gutters py-4">
                     <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                         <span class="text-uppercase page-subtitle">Overview</span>
-                        <h3 class="page-title">Add Menu</h3>
+                        <h3 class="page-title">Add News</h3>
                     </div>
                 </div>
                 <!-- End Page Header -->
                 <!-- Default Light Table -->
                 <div class="row">
-
                     <div class="col-lg-8">
                         <div class="card card-small mb-4">
                             <div class="card-header border-bottom">
-                                <h6 class="m-0"> Details</h6>
+
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item p-3">
                                     <div class="row">
                                         <div class="col">
-                                            <form th:action="@{/admin/menu-process}" method="post" role="form" th:object="${edit}">
-                                                <div class="form-group">
-                                                    <label >Id</label>
-                                                    <input type="text" class="form-control" id="" placeholder="Example: 1" th:field="${edit.id}" readonly>
+                                            <form th:action="@{/admin/addNew-Process}" method="post" role="form" th:object="${addNew}">
 
-                                                    <label >Name</label>
-                                                    <input type="text" class="form-control" placeholder="Name" th:field="${edit.name}">
+                                                <div class="form-group">
+                                                    <label >Title</label>
+                                                    <input type="text" class="form-control" placeholder="Name" th:field="*{newTitle}">
                                                 </div>
+
                                                 <div class="form-group">
                                                     <label >Image</label>
-                                                    <input type="text" class="form-control" placeholder="Link" th:field="${edit.image}">
+                                                    <input type="text" class="form-control" placeholder="Link" th:field="*{linkImage}">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label >Short Infor</label>
+                                                    <input type="text" class="form-control" placeholder="Short Info" th:field="*{shortInfor}">
                                                 </div>
                                                 <div class="form-row">
-                                                    <div class="form-group col-md-6">
-                                                        <label for="feInputCity">Price</label>
-                                                        <input type="text" class="form-control" id="feInputCity" placeholder="9" th:field="${edit.price}"> </div>
-                                                    <div class="form-group col-md-2">
-                                                        <label >Featured</label>
-                                                        <select class="form-control" th:field="${edit.featured}" >
-                                                            <option  th:value="'false'" th:text="Món-bình-thường"></option>
-                                                            <option  th:value="'true'" th:text="Món-đặc-trưng"></option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group col-md-2">
-                                                        <label >Type</label>
-                                                        <select class="form-control" th:field="${edit.type}" >
-                                                            <option  th:value="'1'" th:text="Thức-ăn"></option>
-                                                            <option  th:value="'2'" th:text="Thức-uống"></option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group col-md-2">
-                                                        <label>Restaurant</label>
-                                                        <select class="form-control" th:field="${edit.restaurant.id}" >
-                                                            <option style="text-transform: uppercase" th:each="list : ${listRestaurant}" th:value="${list.id}" th:text="${list.name}"></option>
-                                                        </select>
-                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label for="feInputCity">Source Author</label>
+                                                        <input type="text" class="form-control" id="feInputCity" placeholder="William Shakespeare" th:field="*{sourceAuthor}"> </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label for="inputZip">Date Time</label>
+                                                        <input type="text" class="form-control" id="inputZip" placeholder="June ,2018" th:field="*{date}"> </div>
+
                                                 </div>
+
                                                 <div class="form-group">
-                                                    <label>Description</label>
-                                                    <textarea  class="form-control" placeholder="Write Info" th:field="${edit.description}" rows="5"></textarea>
+                                                    <label >Info</label>
+                                                    <textarea  class="form-control ckeditor" id="cktext" placeholder="Write Infor" th:field="*{infor}" rows="5"></textarea>
                                                 </div>
-                                                <button type="submit" class="btn btn-accent">EDIT MENU</button>
+                                                <button type="submit" class="btn btn-accent">Add News</button>
                                             </form>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
+
+                        </div>
+                    </div>
+                    <div class="notes" style="float: right">
+                        <div>
+                        <span class="item-already-note">
+                            <p class="name-note"><span> Image: Nhap bang link.</span></p>
+                        </span><br>
+                            <span class="item-note">
+                            <p class="name-note"><span> Ảnh trong tin tức nên để kích thước style="height:400px; width:600px"</span></p>
+                        </span><br>
+
                         </div>
                     </div>
                 </div>
                 <!-- End Default Light Table -->
+
             </div>
             <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="#">Eat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Bus Owner</a>
+                        <a class="nav-link" href="#">Drink</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Bus</a>
+                        <a class="nav-link" href="#">Relax</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Seat</a>
+                        <a class="nav-link" href="#">Gift</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">User</a>
+                        <a class="nav-link" href="#">Stay</a>
                     </li>
                 </ul>
                 <span class="copyright ml-auto my-auto mr-2">Copyright © 2018

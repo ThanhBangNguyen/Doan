@@ -9,9 +9,26 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="../styles/shards-dashboards.1.1.0.min.css">
-    <link rel="stylesheet" href="../styles/extras.1.1.0.min.css">
+    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" th:href="@{../styles/shards-dashboards.1.1.0.min.css}">
+    <link rel="stylesheet" th:href="@{../styles/extras.1.1.0.min.css}">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <style>
+        label p{
+            font-weight: bold;
+            float: left;
+        }
+        label span{
+            float: left;
+        }
+        label img{
+            float: none;
+            margin-left: 10%;
+        }
+        label iframe{
+            float: none;
+            margin-left: 10%;
+        }
+    </style>
 </head>
 <body class="h-100">
 
@@ -105,7 +122,7 @@
                 <div class="page-header row no-gutters py-4">
                     <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                         <span class="text-uppercase page-subtitle">Overview</span>
-                        <h3 class="page-title">Add Menu</h3>
+                        <h3 class="page-title">Detail New</h3>
                     </div>
                 </div>
                 <!-- End Page Header -->
@@ -115,54 +132,36 @@
                     <div class="col-lg-8">
                         <div class="card card-small mb-4">
                             <div class="card-header border-bottom">
-                                <h6 class="m-0"> Details</h6>
+                                <h6 class="m-0">Store Details</h6>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item p-3">
                                     <div class="row">
                                         <div class="col">
-                                            <form th:action="@{/admin/menu-process}" method="post" role="form" th:object="${edit}">
+                                            <form>
                                                 <div class="form-group">
-                                                    <label >Id</label>
-                                                    <input type="text" class="form-control" id="" placeholder="Example: 1" th:field="${edit.id}" readonly>
+                                                    <label><p>Title : </p><span th:text="${detailNews.newTitle}"> : Ten</span></label>
+                                                </div>
 
-                                                    <label >Name</label>
-                                                    <input type="text" class="form-control" placeholder="Name" th:field="${edit.name}">
+                                                <div class="form-group">
+                                                    <label ><p>Image </p><img th:src="${detailNews.linkImage}" width="25%"></label>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label >Image</label>
-                                                    <input type="text" class="form-control" placeholder="Link" th:field="${edit.image}">
-                                                </div>
-                                                <div class="form-row">
-                                                    <div class="form-group col-md-6">
-                                                        <label for="feInputCity">Price</label>
-                                                        <input type="text" class="form-control" id="feInputCity" placeholder="9" th:field="${edit.price}"> </div>
-                                                    <div class="form-group col-md-2">
-                                                        <label >Featured</label>
-                                                        <select class="form-control" th:field="${edit.featured}" >
-                                                            <option  th:value="'false'" th:text="Món-bình-thường"></option>
-                                                            <option  th:value="'true'" th:text="Món-đặc-trưng"></option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group col-md-2">
-                                                        <label >Type</label>
-                                                        <select class="form-control" th:field="${edit.type}" >
-                                                            <option  th:value="'1'" th:text="Thức-ăn"></option>
-                                                            <option  th:value="'2'" th:text="Thức-uống"></option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group col-md-2">
-                                                        <label>Restaurant</label>
-                                                        <select class="form-control" th:field="${edit.restaurant.id}" >
-                                                            <option style="text-transform: uppercase" th:each="list : ${listRestaurant}" th:value="${list.id}" th:text="${list.name}"></option>
-                                                        </select>
-                                                    </div>
+                                                    <label ><p>Short Infor : </p><span th:text="${detailNews.shortInfor}"> : Ten</span></label>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Description</label>
-                                                    <textarea  class="form-control" placeholder="Write Info" th:field="${edit.description}" rows="5"></textarea>
+                                                    <label ><p>Source Author : </p><span th:text="${detailNews.sourceAuthor}"> : Ten</span></label>
                                                 </div>
-                                                <button type="submit" class="btn btn-accent">EDIT MENU</button>
+                                                <div class="form-group">
+                                                    <label ><p>Date Time : </p><span th:text="${detailNews.date}"> : Ten</span></label>
+                                                </div>
+
+                                                <div class="form-group">
+
+
+                                                    <label ><p>Infor : </p><span th:utext ="${detailNews.infor}"> : Ten</span></label>
+
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -204,7 +203,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
-<script src="scripts/extras.1.1.0.min.js"></script>
-<script src="scripts/shards-dashboards.1.1.0.min.js"></script>
+<script th:src="@{../scripts/extras.1.1.0.min.js}"></script>
+<script th:src="@{../scripts/shards-dashboards.1.1.0.min.js}"></script>
 </body>
 </html>

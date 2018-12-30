@@ -19,54 +19,8 @@ public class RestaurantDTO {
     private Boolean featured;
     private String banner;
     private List<MenuDTO> menus;
+    private List<UserDTO> users;
     private CategoryDTO category;
-
-    @Override
-    public String toString() {
-        return "RestaurantDTO{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", priceUS='" + priceUS + '\'' +
-                ", priceVN='" + priceVN + '\'' +
-                ", info='" + info + '\'' +
-                ", shortInfo='" + shortInfo + '\'' +
-                ", address='" + address + '\'' +
-                ", timeOC='" + timeOC + '\'' +
-                ", phone='" + phone + '\'' +
-                ", linkMap='" + linkMap + '\'' +
-                ", image='" + image + '\'' +
-                ", video='" + video + '\'' +
-                ", type=" + type +
-                ", featured=" + featured +
-                ", banner='" + banner + '\'' +
-                ", menus=" + menus +
-                ", category=" + category +
-                '}';
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Boolean getFeatured() {
-        return featured;
-    }
-
-    public void setFeatured(Boolean featured) {
-        this.featured = featured;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
 
     public Long getId() {
         return id;
@@ -74,14 +28,6 @@ public class RestaurantDTO {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getShortInfo() {
-        return shortInfo;
-    }
-
-    public void setShortInfo(String shortInfo) {
-        this.shortInfo = shortInfo;
     }
 
     public String getName() {
@@ -108,36 +54,20 @@ public class RestaurantDTO {
         this.priceVN = priceVN;
     }
 
-    public String getTimeOC() {
-        return timeOC;
-    }
-
-    public void setTimeOC(String timeOC) {
-        this.timeOC = timeOC;
-    }
-
-    public List<MenuDTO> getMenus() {
-        return menus;
-    }
-
-    public void setMenus(List<MenuDTO> menus) {
-        this.menus = menus;
-    }
-
-    public CategoryDTO getCategory() {
-        return category;
-    }
-
-    public void setCategory(CategoryDTO category) {
-        this.category = category;
-    }
-
     public String getInfo() {
         return info;
     }
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    public String getShortInfo() {
+        return shortInfo;
+    }
+
+    public void setShortInfo(String shortInfo) {
+        this.shortInfo = shortInfo;
     }
 
     public String getAddress() {
@@ -148,12 +78,12 @@ public class RestaurantDTO {
         this.address = address;
     }
 
-    public String getBanner() {
-        return banner;
+    public String getTimeOC() {
+        return timeOC;
     }
 
-    public void setBanner(String banner) {
-        this.banner = banner;
+    public void setTimeOC(String timeOC) {
+        this.timeOC = timeOC;
     }
 
     public String getPhone() {
@@ -172,11 +102,67 @@ public class RestaurantDTO {
         this.linkMap = linkMap;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public String getVideo() {
         return video;
     }
 
     public void setVideo(String video) {
         this.video = video;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public Boolean getFeatured() {
+        return featured;
+    }
+
+    public void setFeatured(Boolean featured) {
+        this.featured = featured;
+    }
+
+    public String getBanner() {
+        return banner;
+    }
+
+    public void setBanner(String banner) {
+        this.banner = banner;
+    }
+
+    public List<MenuDTO> getMenus() {
+        return menus;
+    }
+
+    public void setMenus(List<MenuDTO> menus) {
+        this.menus = menus;
+    }
+
+    public List<UserDTO> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<UserDTO> users) {
+        this.users = users;
+    }
+
+    public CategoryDTO getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryDTO category) {
+        this.category = category;
     }
 }
