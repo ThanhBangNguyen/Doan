@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DANANGFREEWALKINGTOUR</title>
+    <link rel="shortcut icon" href="./images/logo-changed.png" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{css/animate.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{icon/flaticon.css}">
+    <link rel="stylesheet" th:href="@{css/slick-theme.css}">
+    <link rel="stylesheet" th:href="@{css/slick.css}">
+    <link rel="stylesheet" th:href="@{css/home/common.css}">
+    <link rel="stylesheet" th:href="@{css/home/desktop.css}">
+    <link rel="stylesheet" th:href="@{css/home/mobile.css}">
+    <link href="https://fonts.googleapis.com/css?family=Neucha|Oxygen" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Chat with us -->
+    <div class="chat wow bounceInLeft" data-wow-delay="1s">
+        <a href="https://m.me/danangfreewalkingtour" target="_blank">
+            <i class="fab fa-facebook-messenger"></i>
+        </a>
+        <div></div>
+    </div>
+    <!-- POP-UP LANGUAGE -->
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img th:src="@{images/logo-changed.png}" class="lazy">
+        </div>
+        <div class="info">
+            <div class="info-item">
+                <div class="info-number">49+</div>
+                <div class="info-text">Tour Guides</div>
+            </div>
+            <div class="info-item">
+                <div class="info-number">2489+</div>
+                <div class="info-text">Happy Clients</div>
+            </div>
+            <div class="info-item">
+                <div class="info-number">1896+</div>
+                <div class="info-text">Tours</div>
+            </div>
+        </div>
+        <div class="contact">
+            <a href="https://www.facebook.com/danangfreewalkingtour/" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCo8UN9Csv2pC0tMOSVAZD6g" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://plus.google.com/118025859778243251042" target="_blank">
+                <i class="fab fa-google-plus-g"></i>
+            </a>
+            <a href="https://www.instagram.com/danangfreewalkingtour/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tripadvisor.com.vn/Attraction_Review-g298085-d11949997-Reviews-Da_Nang_Free_Walking_Tour-Da_Nang_Quang_Nam_Province.html"
+                target="_blank">
+                <i class="fab fa-tripadvisor"></i>
+            </a>
+        </div>
+    </header>
+    <!-- MAIN -->
+    <main>
+        <section class="cover">
+            <div class="img-overlay">
+                <img th:src="@{images/DNFWT- Cover1.png}" class="lazy">
+            </div>
+            <div class="cover-text">
+                <div class="cover-title">
+                    Discover the city with local students
+                </div>
+            </div>
+        </section>
+        <section class="route">
+            <div class="route-title">
+                We will lead you to the top 5 destinations in the center of our city!
+            </div>
+            <div class="route-tour">
+                9am - 11am
+                <br> 3pm - 5pm
+            </div>
+            <div class="route-bor"></div>
+            <div class="route-tips">
+                TIP BASED
+            </div>
+            <div class="route-list">
+                <div class="route-item fadeInLeft wow">
+                    <div class="route-img">
+                        <img class="lazy" data-src="images/Route 5 - Market-01.png">
+                    </div>
+                    <div class="route-text">
+                        <div class="route-name">
+                            <div class="route-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="place-holder"></div>
+                            </div>
+                            <p>1. Han Market</p>
+                        </div>
+                        <div class="route-time fadeInDown wow">
+                            20 Mins Walk
+                        </div>
+                        <div class="route-desc">
+                            <div class="circle"></div>It is opened during the French <br>
+                            <div class="circle"></div>It’s the humming heart of the busy city <br>
+                            <div class="circle"></div>The Greatest place for finding some great bargains on souvenirs,
+                            clothes and local foods <br>
+                            <div class="circle"></div>The Han market is opened daily from 7:00 am - 7:00 pm.
+                        </div>
+                    </div>
+                </div>
+                <div class="route-item fadeInRight wow route-reverse">
+                    <div class="route-text">
+                        <div class="route-name">
+                            <div class="route-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="place-holder"></div>
+                            </div>
+                            <p>2. Cathedral</p>
+                        </div>
+                        <div class="route-time">
+                            2 Mins Walk
+                        </div>
+                        <div class="route-desc">
+                            <div class="circle"></div>Da Nang Cathedral was built by French priest Louis Vallet in 1923
+                            and covered pink-painted edifice <br>
+                            <div class="circle"></div>The name comes from the rooster that sits atop the impressive
+                            steeple <br>
+                            <div class="circle"></div>The Cathedral is opened Monday to Saturday 5:00 am-7:30 pm,
+                            Sunday 5:00 am - 7:00 pm.
+                        </div>
+                    </div>
+                    <div class="route-img">
+                        <img class="lazy" data-src="images/Route 4 - Cathedral-01-01.png">
+                    </div>
+                </div>
+                <div class="route-item fadeInLeft wow">
+                    <div class="route-img">
+                        <img class="lazy" data-src="images/Route 3 - Museum-01-01.png">
+                    </div>
+                    <div class="route-text">
+                        <div class="route-name">
+                            <div class="route-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="place-holder"></div>
+                            </div>
+                            <p>3. Cham Museum</p>
+                        </div>
+                        <div class="route-time">
+                            10 Mins Walk
+                        </div>
+                        <div class="route-desc">
+                            <div class="circle"></div>This old sandstone building house was established in 1919 <br>
+                            <div class="circle"></div>It is an invaluable collection of more than 1500 objects about
+                            Cham culture, religion, and history <br>
+                            <div class="circle"></div>The museum is opened daily from 7:00 am to 5:30 pm.
+                        </div>
+                    </div>
+                </div>
+                <div class="route-item fadeInRight wow route-reverse">
+                    <div class="route-text">
+                        <div class="route-name">
+                            <div class="route-icon">
+                                <div class="place-holder"></div>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <p>4. Dragon Bridge</p>
+                        </div>
+                        <div class="route-time">
+                            6 Mins Walk
+                        </div>
+                        <div class="route-desc">
+                            <div class="circle"></div>One of the most unique and impressive architecture in Viet Nam
+                            <br>
+                            <div class="circle"></div>It is up to 2,500 smart LED lights system <br>
+                            <div class="circle"></div>The capability to “breathe” fire or water every Saturday and
+                            Sunday or on special occasions from 9:00 pm - 9.30 pm.
+                        </div>
+                    </div>
+                    <div class="route-img">
+                        <img class="lazy" data-src="images/Route 2- Dragon Bridg-01.png">
+                    </div>
+                </div>
+                <div class="route-item fadeInLeft wow">
+                    <div class="route-img">
+                        <img class="lazy" data-src="images/Route 1- Han bridge-01.png">
+                    </div>
+                    <div class="route-text">
+                        <div class="route-name">
+                            <div class="route-icon">
+                                <div class="place-holder"></div>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <p>5. Han Bridge</p>
+                        </div>
+                        <div class="route-time">
+                            2 Mins Walk
+                        </div>
+                        <div class="route-desc">
+                            <div class="circle"></div>This is the first swing bridge designed and constructed by
+                            Vietnamese engineers <br>
+                            <div class="circle"></div>The Han River Bridge – the symbol for new vitality and the
+                            developing desire of the City <br>
+                            <div class="circle"></div>The capable of movement rotate 90 degrees in the middle part at
+                            1:00 am.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="route-but wow tada">
+                <a href="/bookingTour"
+                    target="_blank">
+                    <div class="but-here">
+                        Join Us Now!
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section class="tours">
+            <h1 class="big-title">
+                Find Your Perfect Trip
+            </h1>
+            <div class="description-text">
+                We provide all of theses unique experiences for our visitors. Check it out!
+            </div>
+            <div class="card-row">
+                <div class="card-item big-item">
+                    <div class="card-show">
+                        <div class="show-img">
+                            <img class="cardImage lazy" data-src="images/Cover pic 1 1 - webside icon-compressed.jpg">
+                            <div class="card-hide">
+                                <div class="hide-wrap">
+                                    <div class="hide-title">Walking tour in the center of Da Nang discovering 5
+                                        attractive places with local university
+                                        students. </div>
+                                    <div class="hide-bor"></div>
+                                    <div class="hide-time">
+                                        11:00 am - 1:00 pm
+                                        <br> 5:00 pm - 7:00 pm
+                                    </div>
+                                    <div class="hide-bor-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="show-title">
+                            Foody Story Tour
+                        </div>
+                        <div class="tips">
+                            $17/Person
+                        </div>
+                        <a href="/bookingTour"
+                            target="_blank">
+                            <div class="button">Book Now</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <div class="card-show">
+                        <div class="show-img">
+                            <img class="cardImage lazy" data-src="images/7-bao-tang-da-nang.JPG">
+                            <div class="card-hide">
+                                <div class="hide-wrap">
+                                    <div class="hide-title">Walking tour in the center of Da Nang discovering 5
+                                        attractive places with local university
+                                        students. </div>
+                                    <div class="hide-bor"></div>
+                                    <div class="hide-time">
+                                        10:00 am - 11:30 pm
+                                        <br> 3:00 pm - 4:30 pm
+                                    </div>
+                                    <div class="hide-bor-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="show-title">
+                            Museum Planner
+                        </div>
+                        <div class="tips">
+                            $20/Peson
+                        </div>
+                        <a href="/bookingTour"
+                            target="_blank">
+                            <div class="button">Book Now</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <div class="card-show">
+                        <div class="show-img">
+                            <img class="cardImage lazy" data-src="images/tripplanner.png">
+                            <div class="card-hide">
+                                <div class="hide-wrap">
+                                    <div class="hide-title">Walking tour in the center of Da Nang discovering 5
+                                        attractive places with local university
+                                        students. </div>
+                                    <div class="hide-bor"></div>
+                                    <div class="hide-time">
+                                        10:00 am - 11:30 am
+                                        <br> 3:00 pm - 4:30 pm
+                                    </div>
+                                    <div class="hide-bor-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="show-title">
+                            Your Trip Planner
+                        </div>
+                        <div class="tips">
+                            Free
+                        </div>
+                        <a href="/bookingTour"
+                            target="_blank">
+                            <div class="button">Book Now</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="thingstodo">
+            <div class="things-title">
+                Things to do
+            </div>
+            <div class="things-catalog">
+                <div class="things-but" th:each="list:${listThingtodo}">
+                    <a th:href="@{/web-catalog-{id}(id=${list.id})}" >
+                        <i th:class="${list.nameClass}"></i>
+                        <p style="text-transform: uppercase" th:text="${list.name}"></p>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="latest-news">
+            <h1 class="news-title">
+                Guys, Catch Up With Us!
+            </h1>
+            <div class="news">
+                <div class="items-list">
+                    <div class="big-item">
+                        <a th:href="@{/readNews-{id}(id=${firstNew.id})}" >
+                            <div class="article"><!--First New --->
+                                <div class="article-img">
+                                    <img th:src="${firstNew.linkImage}"
+                                         alt="">
+                                </div>
+                                <div class="article-title" th:text="${firstNew.newTitle}">
+
+                                </div>
+                                <div class="article-desc" th:text="${firstNew.shortInfor}">
+
+                                </div>
+                                <div class="article-by">
+                                    <div class="us" th:text="${firstNew.sourceAuthor}" style="float: left">
+
+                                    </div>
+                                    <div class="space" style="float: left"></div>
+                                    <div class="vn" th:text="${firstNew.date}" style="float: left">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="normal-items">
+                        <div class="item" th:each="list2:${listNew}" style="padding-bottom: 10px">
+                            <a th:href="@{/readNews-{id}(id=${list2.id})}">
+                                <div class="article">
+                                    <div class="article-img">
+                                        <img th:src="${list2.linkImage}"
+                                             alt="">
+                                    </div>
+                                    <div class="article-title" th:text="${list2.newTitle}">
+
+                                    </div>
+
+
+                                    <div class="article-by">
+                                        <div class="us" th:text="${list2.sourceAuthor}" style="float: left">
+
+                                        </div>
+                                        <div class="space" style="float: left"></div>
+                                        <div class="vn" th:text="${list2.date}" style="float: left">
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </a>
+                        </div>
+
+
+
+                    </div>
+                </div><!----end items-list-->
+                <div class="more-button">
+                    <div class="left-button">
+                        <i class="flaticon-left-arrow"></i>
+                    </div>
+                    <div class="right-button">
+                        <i class="flaticon-next"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="video">
+            <div class="video-title">
+                <i class="fab fa-youtube"></i>
+                <p>Video Da Nang Free Walking Tour</p>
+            </div>
+            <div class="big-video">
+                <div class="iframe">
+                    <iframe width="" height="" src="https://www.youtube.com/embed/qHT36g3-uvg" frameborder="0" allow="autoplay; encrypted-media"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="big-video-title">
+                    Live: Discover the traditional suits of Vietnam
+                </div>
+            </div>
+            <div class="small-picture">
+                <div class="small-item">
+                    <div class="small-img">
+                        <a href="https://www.youtube.com/watch?v=qHT36g3-uvg" target="_blank">
+                            <img class="lazy" data-src="images/video-slide7.jpg">
+                        </a>
+                    </div>
+                    <div class="small-title">
+                        Live: Discover the traditional suits of Vietnam
+                    </div>
+                </div>
+                <div class="small-item">
+                    <div class="small-img">
+                        <a href="https://www.youtube.com/watch?v=_T7kLx2823s&t=136s" target="_blank">
+                            <img class="lazy" data-src="images/video-slide1.jpg">
+                        </a>
+                    </div>
+                    <div class="small-title">
+                        HONGDAE BBQ & BEER | Tour đi bộ miễn phí dành cho khách du lịch Đà Nẵng
+                    </div>
+                </div>
+                <div class="small-item">
+                    <div class="small-img">
+                        <a href="https://www.youtube.com/watch?v=hlugh4oJLvE" target="_blank">
+                            <img class="lazy" data-src="images/video-slide3.jpg">
+                        </a>
+                    </div>
+                    <div class="small-title">
+                        Best Free Tour in Da Nang - Show you about our beloved City
+                    </div>
+                </div>
+                <div class="small-item">
+                    <div class="small-img">
+                        <a href="https://www.youtube.com/watch?v=XUXeGsFq8so" target="_blank">
+                            <img class="lazy" data-src="images/video-slide4.jpg">
+                        </a>
+                    </div>
+                    <div class="small-title">
+                        [Our Recommendation] - Thien Long Hien Restaurant | Da Nang Things To Do
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about-us">
+            <div class="about-title">
+                What People Talk About Us
+            </div>
+            <div class="about-list">
+                <div class="about-item">
+                    <div class="customer-info">
+                        <div class="avt">
+                            <img class="lazy" data-src="images/jessica-c.jpeg">
+                        </div>
+                        <div class="customer-text">
+                            <div class="name">Jessica C</div>
+                            <div class="from">From York, United Kingdom</div>
+                        </div>
+                    </div>
+                    <div class="customer-rated">
+                        <div class="rate-info">
+                            <div class="rate-icon">
+                                <div class="rated-point">
+                                    <div class="border-point">
+                                        <div class="point"></div>
+                                    </div>
+                                    <div class="border-point">
+                                        <div class="point"></div>
+                                    </div>
+                                    <div class="border-point">
+                                        <div class="point"></div>
+                                    </div>
+                                    <div class="border-point">
+                                        <div class="point"></div>
+                                    </div>
+                                    <div class="border-point">
+                                        <div class="point"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rated-text">
+                                A nice intro to the food of Da Nang
+                            </div>
+                        </div>
+                        <div class="rated-comment">
+                            A nice intro to the food of Da Nang. I spent the afternoon with Mai and learned loads about
+                            the history, culture and food
+                            of Da Nang. You could combine the Free Walking Tour with the Foody Tour but I'd recommend
+                            doing
+                            them on different days because it was really tiring! Thanks Mai!
+                            <a href="https://www.tripadvisor.com.vn/Attraction_Review-g298085-d11949997-Reviews-Da_Nang_Free_Walking_Tour-Da_Nang_Quang_Nam_Province.html"
+                                target="_blank">More...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-item">
+                    <div class="customer-info">
+                        <div class="avt">
+                            <img class="lazy" data-src="images/budgettravellerkl.jpeg">
+                        </div>
+                        <div class="customer-text">
+                            <div class="name">BudgetPaik</div>
+                            <div class="from">From Kuala Lumpur</div>
+                        </div>
+                    </div>
+                    <div class="customer-rated">
+                        <div class="rate-info">
+                            <div class="rate-icon">
+                                <div class="rated-point">
+                                    <div class="border-point">
+                                        <div class="point"></div>
+                                    </div>
+                                    <div class="border-point">
+                                        <div class="point"></div>
+                                    </div>
+                                    <div class="border-point">
+                                        <div class="point"></div>
+                                    </div>
+                                    <div class="border-point">
+                                        <div class="point"></div>
+                                    </div>
+                                    <div class="border-point">
+                                        <div class="point"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rated-text">
+                                Great way to see Danang
+                            </div>
+                        </div>
+                        <div class="rated-comment">
+                            Our guide, Mai, who is a final year university student, brought us around the city. We
+                            visited the Cho Han, Danang Catheral,
+                            outside of Cham museum, the Dragon Bridge and we walked along the Han river back to the
+                            Danang
+                            Tourist Office. Being local herself, she can tell us much about the lifestyle and
+                            attractions
+                            in Danang. Mai speaks good English and is able to answer all our questions about Danang.
+                            Highly
+                            recommended tour if you have 2-3 hours to spend in Danang.
+                            <a href="https://www.tripadvisor.com.vn/Attraction_Review-g298085-d11949997-Reviews-Da_Nang_Free_Walking_Tour-Da_Nang_Quang_Nam_Province.html"
+                                target="_blank">More...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-item">
+                    <div class="customer-info">
+                        <div class="avt">
+                            <img class="lazy" data-src="images/avatar.jpeg">
+                        </div>
+                        <div class="customer-text">
+                            <div class="name">Intlgal007</div>
+                            <div class="from">From Portland, Oregon</div>
+                        </div>
+                    </div>
+                    <div class="customer-rated">
+                        <div class="rate-info">
+                            <div class="rate-icon">
+                                <div class="rated-point">
+                                    <div class="border-point">
+                                        <div class="point"></div>
+                                    </div>
+                                    <div class="border-point">
+                                        <div class="point"></div>
+                                    </div>
+                                    <div class="border-point">
+                                        <div class="point"></div>
+                                    </div>
+                                    <div class="border-point">
+                                        <div class="point"></div>
+                                    </div>
+                                    <div class="border-point">
+                                        <div class="point"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rated-text">
+                                Wonderful tour of Danang
+                            </div>
+                        </div>
+                        <div class="rated-comment">
+                            Really enjoyed the tour with Mai and Loc who were fantastic guides. Mai was especially
+                            knowledgeable about Danang and her
+                            English was terrific! So much fun and both were always smiling and happy even though we got
+                            rained
+                            on for the first 20 minutes!! They kept us in good spirits and we had a lot of fu THANK
+                            YOU!!
+                            <a href="https://www.tripadvisor.com.vn/Attraction_Review-g298085-d11949997-Reviews-Da_Nang_Free_Walking_Tour-Da_Nang_Quang_Nam_Province.html"
+                                target="_blank">More...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="see-more">
+                <a href="https://www.tripadvisor.com.vn/Attraction_Review-g298085-d11949997-Reviews-Da_Nang_Free_Walking_Tour-Da_Nang_Quang_Nam_Province.html"
+                    target="_blank">See more on
+                    <p>
+                        <i class="fab fa-tripadvisor"></i>Trip Advisor</p>
+                </a>
+            </div>
+        </section>
+    </main>
+    <!-- FOOTER -->
+    <footer>
+        <div class="socialMedia">
+            <a href="https://www.facebook.com/danangfreewalkingtour/" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCo8UN9Csv2pC0tMOSVAZD6g" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://plus.google.com/118025859778243251042" target="_blank">
+                <i class="fab fa-google-plus-g"></i>
+            </a>
+            <a href="https://www.instagram.com/danangfreewalkingtour/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tripadvisor.com.vn/Attraction_Review-g298085-d11949997-Reviews-Da_Nang_Free_Walking_Tour-Da_Nang_Quang_Nam_Province.html"
+                target="_blank">
+                <i class="fab fa-tripadvisor"></i>
+            </a>
+        </div>
+        <div class="contact">
+            <div class="contact-item">
+                <a href="mailto:danangfreewalkingtour@gmail.com" target="_blank">
+                    <i class="far fa-envelope"></i>danangfreewalkingtour@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <a href="https://www.google.com/maps/place/Trung+t%C3%A2m+H%E1%BB%97+tr%E1%BB%A3+Du+kh%C3%A1ch+%C4%90%C3%A0+N%E1%BA%B5ng+-+Da+Nang+Visitor+Center/@16.0684951,108.224932,15z/data=!4m2!3m1!1s0x0:0x3f2ff49b9ac833f3?sa=X&ved=2ahUKEwilia3whuLcAhXBfd4KHQU6CXYQ_BIwCnoECAoQCw"
+                    target="_blank">
+                    <i class="fas fa-map-marker-alt"></i>108 Bach Dang street, Da Nang, Viet Nam</a>
+            </div>
+            <div class="contact-item">
+                <a href="tel:+84 90 563 1419">
+                    <i class="fas fa-phone" data-fa-transform="rotate-90"></i>+84 90 563 1419</a>
+            </div>
+        </div>
+        <div class="logo">
+            <div class="logo-img">
+                <img src="images/logo.png">
+            </div>
+            <div class="logo-text">
+                <a href="index.html">&copy; Da Nang Free Walking Tour</a>
+            </div>
+        </div>
+    </footer>
+    <!-- Script Here -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="js/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+        crossorigin="anonymous"></script>
+    <script src="js/lazyload.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/myscript.js"></script>
+</body>
+<!-- Load Facebook SDK for JavaScript -->
+<!-- <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script> -->
+
+<!-- Your customer chat code -->
+<!-- <div class="fb-customerchat"
+  attribution=setup_tool
+  page_id="1933010036760628">
+</div> -->
+
+</html>

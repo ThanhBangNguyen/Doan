@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DANANGFREEWALKINGTOUR</title>
+    <link rel="shortcut icon" href="./images/logo-changed.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oxygen" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{css/animate.css}">
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{css/slick-theme.css}">
+    <link rel="stylesheet" th:href="@{css/slick.css}">
+    <link rel="stylesheet" th:href="@{icon/flaticon.css}">
+    <link rel="stylesheet" th:href="@{css/catalog/common.catalog.css}">
+    <link rel="stylesheet" th:href="@{css/catalog/desktop.catalog.css}">
+    <link rel="stylesheet" th:href="@{css/catalog/mobile.catalog.css}">
+</head>
+
+<body>
+<!-- Chat with us -->
+<div class="chat wow bounceInLeft" data-wow-duration="2s">
+    <a href="https://m.me/danangfreewalkingtour">
+        <i class="fab fa-facebook-messenger"></i>
+    </a>
+    <div></div>
+</div>
+<!-- header -->
+<header>
+    <div class="head-img">
+        <a href="/">
+            <img th:src="@{images/logo-changed.png}">
+        </a>
+    </div>
+    <div class="things-catalog">
+        <div class="things-but" th:each="list:${listThingtodo}">
+            <a th:href="@{/web-catalog-{id}(id=${list.id})}">
+                <i th:class="${list.nameClass}"></i>
+                <p style="text-transform: uppercase" th:text="${list.name}"></p>
+            </a>
+        </div>
+    </div>
+</header>
+
+
+<!-- SIMPLE MENU -->
+<div class="simple-menu" style="top:0;" >
+    <div class="menu-content" style="top:0">
+        <div class="shop-info" style="top:0">
+            <div class="image">
+                <img th:src="${getInforRelax.image}" alt="Not has IMG">
+            </div>
+            <div class="text">
+                <div class="name" th:text="${getInforRelax.name}"></div>
+                <div class="phone" th:text="${getInforRelax.phone}">
+                    <i class="fas fa-phone" data-fa-transform="rotate-90"></i></a>
+                </div>
+                <div class="address" th:text="${getInforRelax.address}">
+                    <i class="fas fa-map-marker-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="background">
+            <div class="close-menu">
+                <a href="/catalog-eat"><i class="fas fa-times"></i></a>
+            </div>
+            <div class="image-cover">
+                <img data-src="images/logo-changed.png" alt="">
+            </div>
+            <div class="menu-title">THE RELAX</div>
+            <div class="sector">
+                <div class="list-name">MENU</div>
+                <div class="item" th:each="listMenuRelax : ${getListMenuRelax}">
+                    <div class="name">
+                        <div class="original-name" th:text="${listMenuRelax.name}">
+                        </div>
+                    </div>
+                    <div class="dotted"></div>
+                    <div class="cost"><p><span th:text="${listMenuRelax.price}"></span> $</p></div>
+                    <div class="trans-name" th:text="${listMenuRelax.infor}"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Script Here -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/catalog.script.js"></script>
+</body>
+
+</html>

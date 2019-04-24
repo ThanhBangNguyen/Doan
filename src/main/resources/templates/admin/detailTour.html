@@ -1,0 +1,247 @@
+<!doctype html>
+<html class="no-js h-100" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>DaNangFreeWalkingTour</title>
+    <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" th:href="@{../styles/shards-dashboards.1.1.0.min.css}">
+    <link rel="stylesheet" th:href="@{../styles/extras.1.1.0.min.css}">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <style>
+        label p{
+            font-weight: bold;
+            float: left;
+        }
+        label span{
+            float: left;
+        }
+        label img{
+            float: none;
+            margin-left: 10%;
+        }
+        label iframe{
+            float: none;
+            margin-left: 10%;
+        }
+    </style>
+</head>
+<body class="h-100">
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Main Sidebar -->
+        <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+            <div class="main-navbar">
+                <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+                    <a class="navbar-brand w-100 mr-0" href="/admin/" style="line-height: 25px;">
+                        <div class="d-table m-auto">
+                            <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" th:src="@{/images/avatars/logo.png}" alt="Shards Dashboard">
+                            <span class="d-none d-md-inline ml-1">DaNangFreeWalkingTour</span>
+                        </div>
+                    </a>
+                    <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+                        <i class="material-icons">&#xE5C4;</i>
+                    </a>
+                </nav>
+            </div>
+            <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+                <div class="input-group input-group-seamless ml-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
+            </form>
+            <div class="nav-wrapper">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/admin/}">
+                            <i class="material-icons">edit</i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " th:href="@{/admin/things-To-Do}">
+                            <i class="material-icons">vertical_split</i>
+                            <span>Things To Do</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " th:href="@{/admin/list-new}">
+                            <i class="material-icons">vertical_split</i>
+                            <span>News</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " th:href="@{/admin/listTours}">
+                            <i class="material-icons">vertical_split</i>
+                            <span>Booking Tour</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <!-- End Main Sidebar -->
+        <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+            <div class="main-navbar sticky-top bg-white">
+                <!-- Main Navbar -->
+                <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
+                    <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
+                        <div class="input-group input-group-seamless ml-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                            <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
+                    </form>
+                    <ul class="navbar-nav border-left flex-row ">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                <img class="user-avatar rounded-circle mr-2" th:src="@{/images/avatars/0.jpg}" alt="User Avatar">
+                                <span class="d-none d-md-inline-block" th:if="${session.user != null} " th:text="${session.user.username}"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-small">
+                                <a class="dropdown-item" href="user-profile-lite.html">
+                                    <i class="material-icons">&#xE7FD;</i> Profile</a>
+                                <a class="dropdown-item" href="components-blog-posts.html">
+                                    <i class="material-icons">vertical_split</i> Blog Posts</a>
+                                <a class="dropdown-item" href="add-new-post.html">
+                                    <i class="material-icons">note_add</i> Add New Post</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" th:href="@{/admin/logout}">
+                                    <i class="material-icons text-danger">&#xE879;</i> Logout </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <nav class="nav">
+                        <a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left" data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
+                            <i class="material-icons">&#xE5D2;</i>
+                        </a>
+                    </nav>
+                </nav>
+            </div>
+            <!-- / .main-navbar -->
+
+            <div class="main-content-container container-fluid px-4">
+                <!-- Page Header -->
+                <div class="page-header row no-gutters py-4">
+                    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                        <span class="text-uppercase page-subtitle">Overview</span>
+                        <h3 class="page-title">Detail Tour</h3>
+                    </div>
+                </div>
+                <!-- End Page Header -->
+                <!-- Default Light Table -->
+                <div class="row">
+
+                    <div class="col-lg-8">
+                        <div class="card card-small mb-4">
+                            <div class="card-header border-bottom">
+                                <h6 class="m-0"> Details</h6>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item p-3">
+                                    <div class="row">
+                                        <div class="col">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label ><p>Mail Address :  </p><span th:text="${detailTour.gmail}"> : Ten</span></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label ><p>Full name / 全名 / 성명: </p><span th:text="${detailTour.name}"> : Ten</span></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label ><p>How many people／参加人数／몇 명?: </p><span th:text="${detailTour.countPeople}"> : Ten</span></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label ><p>Date / 日期 / 날짜 : </p><span th:text="${detailTour.dateJoin}"> : Ten</span></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label ><p>Time / 时间 / 시각:  </p><span th:text="${detailTour.timeTour}"> : Ten</span></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label ><p>Language／导游语言／언어:  </p><span th:text="${detailTour.language}"> : Ten</span></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label ><p>If our Chinese and Korean guides are busy, can you join us in English Speaking Tour? 如果我们的中国和韩国导游很忙，您会加入我们的英语演讲之旅吗？중국 가이드와 한국어 가이드가 바쁘다면 영어 말하기 투어에 참여해주시겠습니까? :</p><span th:text="${detailTour.foodyStory}"> : Ten</span></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label ><p>Try delicious local foods, and learn about history, culture of Vietnamese in the past? 尝试美味的当地美食，了解过去的越南历史，文化？맛있는 현지 음식을 먹어보고, 과거에 베트남의 역사와 문화에 대해 배워본 적이 있는가? :</p><span th:text="${detailTour.foodyStory}"> : Ten</span></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label ><p>If no, can you tell us the reasons why you don't want to join Foody Story Tour? For us to do better job and next time/ 如果不是，您能告诉我们您不想加入Foody Story Tour的原因吗？ 为了我们下次做得更好/ 만약 그렇지 않다면, 왜 여러분이 Foody Story Tour에 참가하고 싶지 않은지 말씀해 주시겠습니까? 다음번엔 우리가 더 잘해야 한다 :</p><span th:text="${detailTour.reasonNotfoody}"> : Ten</span></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label ><p>Which city are you from / 您来自哪个城市／무슨 도시에서 왔는가?:</p><span th:text="${detailTour.city}"> : Ten</span></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label ><p>How do you know us / 你怎么知道我们的 / 우릴 어떻게 알아? :</p><span th:text="${detailTour.howKnowUs}"> : Ten</span></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label ><p>How can we reach you if there is last minute cancellation (Facebook Messenger link, phone, email)/ 如果有最后一刻取消，我们如何联系到您（Facebook Messenger链接，电话，电子邮件）/ 최종 취소(Facebook, 메사저 링크, 전화, 이메일, Kakaotalk ID)인 경우 어떻게 연락을 드려야 합니까?) ?:</p><span th:text="${detailTour.contact}"> : Ten</span></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label ><p>When do you leave Da Nang / 您何时离开岘港／ 당신은 언제 다낭을 떠나나요?:</p><span th:text="${detailTour.dateLeave}"> : Ten</span></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label ><p>Check out example videos from CGTN [CCTV] on our Tours :</p><span th:text="${detailTour.checkOut}"> : Ten</span></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label ><p>Ask us any travel related questions and get the local to answer / 问我们任何旅行相关的问题，并得到当地人回答 / 관련 질문을 하고 지역 주민에게 연락하십시오?: </p><span th:text="${detailTour.question}"> : Ten</span></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label ><p>A confirmation email will be sent with meeting details. Anything else we can assist you to make your visit to Da Nang better? : </p><span th:text="${detailTour.otherEmail}"> : Ten</span></label>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Default Light Table -->
+            </div>
+            <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">BooK Tour</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Eat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Drink</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Relax</a>
+                    </li>
+                </ul>
+                <span class="copyright ml-auto my-auto mr-2">Copyright © 2018
+              <a href="https://designrevision.com" rel="nofollow">DN Free WalkingTour</a>
+            </span>
+            </footer>
+        </main>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
+<script th:src="@{../scripts/extras.1.1.0.min.js}"></script>
+<script th:src="@{../scripts/shards-dashboards.1.1.0.min.js}"></script>
+</body>
+</html>

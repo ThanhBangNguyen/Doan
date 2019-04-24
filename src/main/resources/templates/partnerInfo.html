@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DaNangFreeWalkingTour</title>
+    <link rel="shortcut icon" href="./images/logo-changed.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oxygen" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{css/animate.css}">
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{css/slick-theme.css}">
+    <link rel="stylesheet" th:href="@{css/slick.css}">
+    <link rel="stylesheet" th:href="@{icon/flaticon.css}">
+    <link rel="stylesheet" th:href="@{css/partnerInfo/common.partnerInfo.css}">
+    <link rel="stylesheet" th:href="@{css/partnerInfo/desktop.partnerInfo.css}">
+    <link rel="stylesheet" th:href="@{css/partnerInfo/mobile.partnerInfo.css}">
+</head>
+
+<body>
+    <!-- Chat with us -->
+    <div class="chat wow bounceInLeft" data-wow-duration="2s">
+        <a href="https://m.me/danangfreewalkingtour">
+            <i class="fab fa-facebook-messenger"></i>
+        </a>
+        <div></div>
+    </div>
+    <!-- header -->
+    <header>
+        <div class="head-img">
+            <a th:href="@{/}">
+                <img th:src="@{images/logo-changed.png}" >
+            </a>
+        </div>
+        <div class="things-catalog">
+            <div class="things-but" th:each="list:${listThingtodo}">
+                <a th:href="@{/web-catalog-{id}(id=${list.id})}">
+                    <i th:class="${list.nameClass}"></i>
+                    <p style="text-transform: uppercase" th:text="${list.name}"></p>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- MAIN -->
+    <main>
+        <section class="cover">
+            <img th:src="${getPartNer.banner}" >
+        </section>
+        <section class="info">
+            <div class="info-avt">
+                <div class="avt">
+                    <img class="square-img"  th:src="${getPartNer.image}" >
+                </div>
+            </div>
+            <div class="info-text"  >
+                <div class="name-text" th:text="${getPartNer.name}">
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-arrow-circle-right"></i>
+                    <p th:utext="${getPartNer.shortInfo}"></p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p th:text="${getPartNer.address}"></p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <p th:text="${getPartNer.timeOC}"></p>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-tag"></i>
+                    <p ><span th:text="${getPartNer.priceUS}"></span> <span>| </span><span th:text="${getPartNer.priceVN}"></span></p>
+                </div>
+            </div>
+        </section>
+        <section class="body">
+            <div class="left-contain">
+                <div class="recommend">
+                    <br>
+
+                        <div class="img-recommend">
+                            <img class="oblong-img" th:src="${getFeatured.image}" >
+                        </div>
+                        <div class="text-recommend">
+                            <div class="title" th:text="${getFeatured.name}">
+                            </div>
+                            <div class="description" th:text="${getFeatured.description}">
+
+                            </div>
+                            <div class="cost"><p> $ <span th:text="${getFeatured.price}"></span></p>
+                            </div>
+                        </div>
+
+
+
+                </div>
+                <div class="menu-list">
+                    <div class="list-col" th:each="info : ${getListMenu}">
+                        <div class="list-item">
+                            <div class="show">
+                                <div class="img-item">
+                                    <img th:src="${info.image}" class="menu-list-img" >
+                                    <div class="hidden" th:text="${info.description}">
+
+                                    </div>
+                                </div>
+                                <div class="name" th:text="${info.name}">
+                                </div>
+                                <div class="cost"><p> $ <span th:text="${info.price}"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-contain">
+                <div class="maps">
+                    <iframe th:src="${getPartNer.linkMap}"
+                        width="" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <div class="address-title">
+                        <div class="address-icon">
+                            <i class="far fa-compass"></i>
+                        </div>
+                        <div class="address-text">
+                            <div class="address-name" th:text="${getPartNer.name}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="address-detail" th:text="${getPartNer.address}">
+                    </div>
+                    <div class="address-guide">
+                    </div>
+                    <hr>
+                    <div class="phone">
+                        <div class="phone-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="phone-num" th:text="${getPartNer.phone}">
+                        </div>
+                    </div>
+                </div>
+                <div class="rated">
+                    <div class="comment-title">
+                        COMMENTS
+                    </div>
+
+                </div>
+                <div class="socialMedia">
+                    <a href="https://www.facebook.com/danangfreewalkingtour/">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCo8UN9Csv2pC0tMOSVAZD6g">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://plus.google.com/118025859778243251042">
+                        <i class="fab fa-google-plus-g"></i>
+                    </a>
+                    <a href="https://www.instagram.com/danangfreewalkingtour/">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tripadvisor.com.vn/Attraction_Review-g298085-d11949997-Reviews-Da_Nang_Free_Walking_Tour-Da_Nang_Quang_Nam_Province.html">
+                        <i class="fab fa-tripadvisor"></i>
+                    </a>
+                </div>
+                <div class="contact" >
+                    <iframe width="306" th:src="${getPartNer.video}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="contact">
+                    <div class="contact-item">
+                        <a href="mailto:danangfreewalkingtour@gmail.com">
+                            <i class="far fa-envelope"></i>danangfreewalkingtour@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <a href="https://www.google.com/maps/place/Trung+t%C3%A2m+H%E1%BB%97+tr%E1%BB%A3+Du+kh%C3%A1ch+%C4%90%C3%A0+N%E1%BA%B5ng+-+Da+Nang+Visitor+Center/@16.0684951,108.224932,15z/data=!4m2!3m1!1s0x0:0x3f2ff49b9ac833f3?sa=X&ved=2ahUKEwilia3whuLcAhXBfd4KHQU6CXYQ_BIwCnoECAoQCw">
+                            <i class="fas fa-map-marker-alt"></i>108 Bach Dang street, Da Nang, Viet Nam</a>
+                    </div>
+                    <div class="contact-item">
+                        <a href="tel:+84 90 563 1419">
+                            <i class="fas fa-phone" data-fa-transform="rotate-90"></i>+84 90 563 1419</a>
+                    </div>
+                    <div class="contact-item backhome">
+                        <a href="index.html">&copy; Da Nang Free Waking Tour</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <!-- Script Here -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIpm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+    <script th:src="@{js/slick.min.js}"></script>
+    <script th:src="@{js/wow.js}"></script>
+    <script th:src="@{js/partnerInfo.script.js}"></script>
+</body>
+
+</html>

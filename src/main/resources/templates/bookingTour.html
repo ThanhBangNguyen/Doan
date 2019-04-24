@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Booking / 预订／예약</title>
+    <link rel="shortcut icon" href="./images/logo-changed.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/post/common.post.css">
+    <link rel="stylesheet" href="css/post/desktop.post.css">
+    <link rel="stylesheet" href="css/post/mobile.post.css">
+    <link rel="stylesheet" href="icon/flaticon.css">
+    <link href="https://fonts.googleapis.com/css?family=Neucha|Oxygen" rel="stylesheet">
+</head>
+
+<body>
+<!-- Chat with us -->
+<div class="chat wow bounceInLeft" data-wow-delay="1s">
+    <a href="https://m.me/danangfreewalkingtour" target="_blank">
+        <i class="fab fa-facebook-messenger"></i>
+    </a>
+    <div></div>
+</div>
+<!-- Header -->
+<header>
+    <div class="logo">
+        <a href="/">
+            <img src="images/logo-changed.png" class="lazy">
+        </a>
+    </div>
+    <div class="info">
+        <div class="info-item">
+            <div class="info-number">49+</div>
+            <div class="info-text">Tour Guides</div>
+        </div>
+        <div class="info-item">
+            <div class="info-number">2489+</div>
+            <div class="info-text">Happy Clients</div>
+        </div>
+        <div class="info-item">
+            <div class="info-number">1896+</div>
+            <div class="info-text">Tours</div>
+        </div>
+    </div>
+    <div class="contact">
+        <a href="https://www.facebook.com/danangfreewalkingtour/" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.youtube.com/channel/UCo8UN9Csv2pC0tMOSVAZD6g" target="_blank">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://plus.google.com/118025859778243251042" target="_blank">
+            <i class="fab fa-google-plus-g"></i>
+        </a>
+        <a href="https://www.instagram.com/danangfreewalkingtour/" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tripadvisor.com.vn/Attraction_Review-g298085-d11949997-Reviews-Da_Nang_Free_Walking_Tour-Da_Nang_Quang_Nam_Province.html"
+           target="_blank">
+            <i class="fab fa-tripadvisor"></i>
+        </a>
+    </div>
+</header>
+<!-- MAIN -->
+<main>
+
+
+    <!-- Default Light Table -->
+    <div class="row" style="padding-left: 350px;background-color: antiquewhite;" >
+        <div class="col-lg-8">
+            <div class="card card-small mb-4">
+                <div class="card-header border-bottom">
+                    <p style="text-align: center;">Booking / 预订／예약</p>
+
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item p-3">
+                        <div class="row"  >
+                            <div class="col">
+                                <form th:action="@{/bookingTour-Process}" method="post" role="form" th:object="${bookingTour}">
+
+                                    <div class="form-group">
+                                        <label >Mail Address :* </label>
+                                        <input type="text" class="form-control" placeholder="Email" th:field="*{gmail}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label >Full name / 全名 / 성명 :</label>
+                                        <input type="text" class="form-control" placeholder="Full name" th:field="*{name}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >How many people／参加人数／몇 명?: *</label>
+                                        <input type="text" class="form-control" placeholder="9 people" th:field="*{countPeople}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Date / 日期 / 날짜 : *</label>
+                                        <input type="date" class="form-control" placeholder="Date Join" th:field="*{dateJoin}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Time / 时间 / 시각: *</label>
+                                        <input type="time" class="form-control" placeholder="Time Tour" th:field="*{timeTour}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Language／导游语言／언어: *</label>
+                                        <select class="form-control" th:field="*{language}" >
+                                            <option  th:value="'English'" th:text="English"></option>
+                                            <option  th:value="'Chinese'" th:text="Chinese "></option>
+                                            <option  th:value="'Korean'" th:text="Korean "></option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >If our Chinese and Korean guides are busy, can you join us in English Speaking Tour? 如果我们的中国和韩国导游很忙，您会加入我们的英语演讲之旅吗？중국 가이드와 한국어 가이드가 바쁘다면 영어 말하기 투어에 참여해주시겠습니까? *</label>
+                                        <select class="form-control" th:field="*{yesEnglish}" >
+                                            <option  th:value="'Yes'" th:text="Yes"></option>
+                                            <option  th:value="'No,Thanks'" th:text="'No,Thanks'"></option>
+
+                                        </select>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Try delicious local foods, and learn about history, culture of Vietnamese in the past? 尝试美味的当地美食，了解过去的越南历史，文化？맛있는 현지 음식을 먹어보고, 과거에 베트남의 역사와 문화에 대해 배워본 적이 있는가? *</label>
+                                        <select class="form-control" th:field="*{foodyStory}" >
+                                            <option  th:value="'Yes'" th:text="Yes"></option>
+                                            <option  th:value="'No, Thanks'" th:text="'No,Thanks'"></option>
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >If no, can you tell us the reasons why you don't want to join Foody Story Tour? For us to do better job and next time/ 如果不是，您能告诉我们您不想加入Foody Story Tour的原因吗？ 为了我们下次做得更好/ 만약 그렇지 않다면, 왜 여러분이 Foody Story Tour에 참가하고 싶지 않은지 말씀해 주시겠습니까? 다음번엔 우리가 더 잘해야 한다</label>
+                                        <input type="text" class="form-control" placeholder="Reson not foodystory" th:field="*{reasonNotfoody}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Which city are you from / 您来自哪个城市／무슨 도시에서 왔는가?</label>
+                                        <input type="text" class="form-control" placeholder="City?" th:field="*{city}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >How do you know us / 你怎么知道我们的 / 우릴 어떻게 알아?</label>
+                                        <input type="text" class="form-control" placeholder="How do you know us?" th:field="*{howKnowUs}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >How can we reach you if there is last minute cancellation (Facebook Messenger link, phone, email)/ 如果有最后一刻取消，我们如何联系到您（Facebook Messenger链接，电话，电子邮件）/ 최종 취소(Facebook, 메사저 링크, 전화, 이메일, Kakaotalk ID)인 경우 어떻게 연락을 드려야 합니까?) ?</label>
+                                        <input type="text" class="form-control" placeholder="Facebook,messenger?" th:field="*{contact}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >When do you leave Da Nang / 您何时离开岘港／ 당신은 언제 다낭을 떠나나요?</label>
+                                        <input type="date" class="form-control" placeholder="Timer Leave?" th:field="*{dateLeave}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Check out example videos from CGTN [CCTV] on our Tours</label>
+                                        <select class="form-control" th:field="*{checkOut}" >
+                                            <option  th:value="'Free Walking Tour - Da Nang Around You and Shopping Tour: https://youtu.be/qHT36g3-uvg'" th:text="'Free Walking Tour - Da Nang Around You and Shopping Tour: https://youtu.be/qHT36g3-uvg'"></option>
+                                            <option  th:value="'Foody Story Tour: https://youtu.be/J2kK2pqOPIQ'" th:text="'Foody Story Tour: https://youtu.be/J2kK2pqOPIQ'"></option>
+                                            <option  th:value="'Meet Da Nang Tour: https://youtu.be/e6rogHokdhM'" th:text="'Meet Da Nang Tour: https://youtu.be/e6rogHokdhM'"></option>
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Ask us any travel related questions and get the local to answer / 问我们任何旅行相关的问题，并得到当地人回答 / 관련 질문을 하고 지역 주민에게 연락하십시오?</label>
+                                        <select class="form-control" th:field="*{question}" >
+                                            <option  th:value="'Yes'" th:text="Yes"></option>
+                                            <option  th:value="'No ,Thanhks'" th:text="No"></option>
+
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >A confirmation email will be sent with meeting details. Anything else we can assist you to make your visit to Da Nang better? / 酒店将发送确认电子邮件，内附会议详情。 还有什么我们可以帮助您更好地访问岘港吗？/ 미팅 세부 정보와 함께 확인 이메일이 전송됩니다. 다낭 방문에 도움이 될 만한 다른 것은 없으십니까?</label>
+                                        <input type="text" class="form-control" placeholder="Other?" th:field="*{otherEmail}">
+                                    </div>
+
+
+                                    <button type="submit" class="btn btn-accent" style="margin-left: 255px;background-color: peru;">BookingTour</button>
+                                </form >
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- End Default Light Table -->
+</main>
+<!-- FOOTER -->
+<footer>
+    <div class="socialMedia">
+        <a href="https://www.facebook.com/danangfreewalkingtour/" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.youtube.com/channel/UCo8UN9Csv2pC0tMOSVAZD6g" target="_blank">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://plus.google.com/118025859778243251042" target="_blank">
+            <i class="fab fa-google-plus-g"></i>
+        </a>
+        <a href="https://www.instagram.com/danangfreewalkingtour/" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tripadvisor.com.vn/Attraction_Review-g298085-d11949997-Reviews-Da_Nang_Free_Walking_Tour-Da_Nang_Quang_Nam_Province.html"
+           target="_blank">
+            <i class="fab fa-tripadvisor"></i>
+        </a>
+    </div>
+    <div class="contact">
+        <div class="contact-item">
+            <a href="mailto:danangfreewalkingtour@gmail.com" target="_blank">
+                <i class="far fa-envelope"></i>danangfreewalkingtour@gmail.com</a>
+        </div>
+        <div class="contact-item">
+            <a href="https://www.google.com/maps/place/Trung+t%C3%A2m+H%E1%BB%97+tr%E1%BB%A3+Du+kh%C3%A1ch+%C4%90%C3%A0+N%E1%BA%B5ng+-+Da+Nang+Visitor+Center/@16.0684951,108.224932,15z/data=!4m2!3m1!1s0x0:0x3f2ff49b9ac833f3?sa=X&ved=2ahUKEwilia3whuLcAhXBfd4KHQU6CXYQ_BIwCnoECAoQCw"
+               target="_blank">
+                <i class="fas fa-map-marker-alt"></i>108 Bach Dang street, Da Nang, Viet Nam</a>
+        </div>
+        <div class="contact-item">
+            <a href="tel:+84 90 563 1419">
+                <i class="fas fa-phone" data-fa-transform="rotate-90"></i>+84 90 563 1419</a>
+        </div>
+    </div>
+    <div class="logo">
+        <div class="logo-img">
+            <img src="images/logo.png">
+        </div>
+        <div class="logo-text">
+            <a href="index.html">&copy; Da Nang Free Walking Tour</a>
+        </div>
+    </div>
+</footer>
+<!-- Script Here -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="js/lazyload.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+        crossorigin="anonymous"></script>
+<script src="js/wow.js"></script>
+<script src="js/post.script.js"></script>
+</body>
+
+</html>
